@@ -16,6 +16,32 @@ if (search) {
   });
 }
 
+function returnToOrigin(event) {
+  if (!window.opener || window.opener.closed) return;
+  event.preventDefault();
+  try {
+    window.opener.focus();
+    window.close();
+  } catch {
+    window.location.href = 'https://app.3damazing.com';
+  }
+}
+
+document.querySelectorAll('a.app-return').forEach(link => link.addEventListener('click', returnToOrigin));
+
+function openAppTarget(path) {
+  const target = 'https://app.3damazing.com' + path;
+  if (window.opener && !window.opener.closed) {
+    try {
+      window.opener.location.href = target;
+      window.opener.focus();
+      window.close();
+      return;
+    } catch {}
+  }
+  window.location.href = target;
+}
+
 const helpParams = new URLSearchParams(window.location.search);
 const practiceHelp = helpParams.get('workspace') === 'practice';
 
@@ -25,7 +51,7 @@ if (practiceHelp) {
   const banner = document.createElement('div');
   banner.className = 'practice-context-banner';
   banner.setAttribute('role', 'status');
-  banner.innerHTML = '<strong>Practice Workspace</strong><span>You opened Help from Practice mode. Practice records stay separate from your real business workspace, and actions described here affect the Practice sandbox while Practice is active.</span>';
+  banner.innerHTML = '<strong>Practice Workspace</strong><span>You opened Help from Practice mode. Practice records stay separate from your real business workspace, and actions described here affect the Practice sandbox while Practice is active.</span><button type="button" class="practice-reset-link" data-app-target="/settings?section=data&focus=reset-practice">Reset Practice →</button>';
 
   const topbar = document.querySelector('.topbar');
   if (topbar) topbar.insertAdjacentElement('afterend', banner);
@@ -42,3 +68,10 @@ if (practiceHelp) {
     } catch {}
   });
 }
+
+document.querySelectorAll('[data-app-target]').forEach(control => {
+  control.addEventListener('click', event => {
+    event.preventDefault();
+    openAppTarget(control.getAttribute('data-app-target') || '/');
+  });
+});
