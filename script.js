@@ -1,19 +1,41 @@
 const search = document.getElementById('help-search');
 const cards = [...document.querySelectorAll('#help-cards .card')];
 const noResults = document.getElementById('no-results');
+const searchStatus = document.getElementById('search-status');
+
+function applyHelpSearch() {
+  if (!search) return;
+  const q = search.value.trim().toLowerCase();
+  const terms = q.split(/\s+/).filter(Boolean);
+  let shown = 0;
+
+  cards.forEach(card => {
+    const haystack = (card.textContent + ' ' + (card.dataset.search || '')).toLowerCase();
+    const match = terms.length === 0 || terms.every(term => haystack.includes(term));
+    card.classList.toggle('search-hidden', !match);
+    card.hidden = !match;
+    card.setAttribute('aria-hidden', match ? 'false' : 'true');
+    if (match) shown++;
+  });
+
+  if (noResults) noResults.hidden = shown !== 0;
+  if (searchStatus) {
+    searchStatus.textContent = q
+      ? (shown === 0 ? `No help topics match “${search.value.trim()}”.` : `Showing ${shown} help topic${shown === 1 ? '' : 's'} matching “${search.value.trim()}”.`)
+      : `Showing all ${cards.length} help topics.`;
+  }
+}
 
 if (search) {
-  search.addEventListener('input', () => {
-    const q = search.value.trim().toLowerCase();
-    let shown = 0;
-    cards.forEach(card => {
-      const haystack = (card.textContent + ' ' + (card.dataset.search || '')).toLowerCase();
-      const match = !q || haystack.includes(q);
-      card.hidden = !match;
-      if (match) shown++;
-    });
-    noResults.hidden = shown !== 0;
+  search.addEventListener('input', applyHelpSearch);
+  search.addEventListener('search', applyHelpSearch);
+  search.addEventListener('keyup', event => {
+    if (event.key === 'Escape') {
+      search.value = '';
+      applyHelpSearch();
+    }
   });
+  applyHelpSearch();
 }
 
 function returnToOrigin(event) {
@@ -51,7 +73,7 @@ if (practiceHelp) {
   const banner = document.createElement('div');
   banner.className = 'practice-context-banner';
   banner.setAttribute('role', 'status');
-  banner.innerHTML = '<strong>Practice Workspace</strong><span>You opened Help from Practice mode. Practice records stay separate from your real business workspace, and actions described here affect the Practice sandbox while Practice is active.</span><button type="button" class="practice-reset-link" data-app-target="/settings?section=data&focus=reset-practice">Reset Practice →</button>';
+  banner.innerHTML = '<strong>Practice</strong><span>You opened Help from Practice. Practice records stay separate from your real business data, and actions described here affect the Practice sandbox while Practice is active.</span><button type="button" class="practice-reset-link" data-app-target="/settings?section=data&focus=reset-practice">Reset Practice →</button>';
 
   const topbar = document.querySelector('.topbar');
   if (topbar) topbar.insertAdjacentElement('afterend', banner);
