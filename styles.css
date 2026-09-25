@@ -2,3 +2,5 @@
 .practice-context-banner .practice-reset-link{margin-left:auto;min-height:36px;padding:0 12px;border:1px solid #9a6d00;border-radius:8px;background:#fff8df;color:#4d3900;font:inherit;font-weight:800;cursor:pointer;white-space:nowrap}
 .practice-context-banner .practice-reset-link:hover,.practice-context-banner .practice-reset-link:focus-visible{background:#fff3bd;outline:2px solid rgba(154,109,0,.25);outline-offset:1px}
 @media(max-width:600px){.practice-context-banner .practice-reset-link{margin-left:0;width:100%}}
+
+.search-hidden{display:none!important}.search-status{margin:9px 4px 0;text-align:left;color:var(--muted);font-size:.88rem;min-height:1.25em}.search-wrap:focus-within .search-status{color:#475467}
