@@ -58,3 +58,5 @@
 @media(min-width:1050px){
   .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
+
+.release-time{margin:5px 0 0;color:var(--muted);font-size:.86rem;font-weight:600}
