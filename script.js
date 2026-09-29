@@ -97,3 +97,15 @@ document.querySelectorAll('[data-app-target]').forEach(control => {
     openAppTarget(control.getAttribute('data-app-target') || '/');
   });
 });
+
+
+// Keep What’s New visible from every Help Center page.
+document.querySelectorAll('.topbar nav').forEach(nav => {
+  if (nav.querySelector('.whats-new-nav')) return;
+  const link = document.createElement('a');
+  link.className = 'whats-new-nav';
+  link.href = 'whats-new.html';
+  link.textContent = 'What’s New';
+  const appReturn = nav.querySelector('.app-return');
+  nav.insertBefore(link, appReturn || nav.firstChild);
+});
