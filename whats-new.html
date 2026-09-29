@@ -1,11 +1,29 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>What’s New | 3D Amazing Help Center</title><meta name="description" content="Release notes and changelog for 3D Amazing Sales Manager."><link rel="stylesheet" href="styles.css?v=20260928-6"></head>
+<title>What’s New | 3D Amazing Help Center</title><meta name="description" content="Release notes and changelog for 3D Amazing Sales Manager."><link rel="stylesheet" href="styles.css?v=20260928-7"></head>
 <body><header class="topbar"><a class="brand" href="index.html">3D Amazing <span>Help Center</span></a><nav><a class="whats-new-nav active" href="whats-new.html">What’s New</a><a href="https://3damazing.com">3damazing.com</a><a class="app-return" href="https://app.3damazing.com">← Return to App</a></nav></header>
-<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated September 28, 2026 · 8:12 PM CDT</p>
+<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated September 28, 2026 · 8:46 PM CDT</p>
 
 <section class="release-entry latest-release" id="latest">
-<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 28, 2026 · 8:09 PM CDT</p></div><span class="release-build">0.8.0-beta.4 · Build cdf084e</span></div>
+<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 28, 2026 · 8:46 PM CDT</p></div><span class="release-build">0.8.0-beta.5 · Build c79042c</span></div>
+<h3>Security hardening</h3>
+<ul>
+<li>Completed an app-wide Supabase access audit. Anonymous users no longer have direct business-table CRUD access, anonymous execution of business <code>SECURITY DEFINER</code> RPCs is zero, and broad PUBLIC RLS policies were removed.</li>
+<li>Reduced direct signed-in access to obsolete/versioned database RPCs while preserving the current application RPC surface.</li>
+<li>The founder beta-invite service now requires Supabase gateway JWT verification in addition to its founder-only authorization check.</li>
+<li>Added baseline production security headers, including HSTS, clickjacking protection, MIME sniffing protection, referrer controls, and restrictive browser permissions.</li>
+<li>User-chosen passwords now require at least 12 characters with uppercase, lowercase, number, and symbol, and are checked against known breached-password data using a privacy-preserving k-anonymity lookup.</li>
+</ul>
+<h3>Beta access</h3>
+<ul>
+<li>Self-service business creation is disabled during the controlled beta. Beta accounts are created through an invitation.</li>
+<li>The sign-in and signup screens now clearly identify the current invitation-only beta.</li>
+<li>Cloudflare Turnstile support is prepared for signup, sign-in, and password-reset requests before public self-service signup is enabled.</li>
+</ul>
+</section>
+
+<section class="release-entry" id="beta-4-20260928">
+<div class="release-heading"><div><span class="status-label">Previous update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 28, 2026 · 8:09 PM CDT</p></div><span class="release-build">0.8.0-beta.4 · Build cdf084e</span></div>
 <h3>New</h3>
 <ul>
 <li>Added founder-only <strong>Admin · Users &amp; Subscriptions</strong> so account, plan, beta, signup, sign-in, and Stripe-managed subscription status can be reviewed in one place.</li>
@@ -84,4 +102,4 @@
 <h2>About these release notes</h2>
 <p>Release notes focus on changes that affect customers. Internal development details, database maintenance, and routine technical work are omitted unless they change how the app behaves.</p>
 </section>
-</article></main><footer><span>© 3D Amazing</span><span><a href="index.html">Help Center</a> · <a href="support.html">Support</a></span></footer><script src="script.js?v=20260928-6"></script></body></html>
+</article></main><footer><span>© 3D Amazing</span><span><a href="index.html">Help Center</a> · <a href="support.html">Support</a></span></footer><script src="script.js?v=20260928-7"></script></body></html>
