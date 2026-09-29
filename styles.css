@@ -60,3 +60,57 @@
 }
 
 .release-time{margin:5px 0 0;color:var(--muted);font-size:.86rem;font-weight:600}
+
+
+/* App-density pass 2026-09-29 */
+@media(min-width:851px){
+  html{font-size:13.5px}
+  main{padding-left:18px;padding-right:18px;padding-bottom:30px}
+  .topbar{min-height:54px}
+  .brand{font-size:.94rem}
+  .brand:before{width:31px;height:31px;margin-right:8px;border-radius:8px;font-size:.72rem}
+  .topbar nav a{font-size:.82rem}
+  .topbar nav a.app-return{padding:6px 9px}
+
+  .hero{padding:26px 0 18px}
+  .hero h1{font-size:2.15rem;margin-bottom:6px}
+  .lede{font-size:.9rem;line-height:1.4}
+  .search-wrap{margin-top:14px}
+  .search-wrap input{padding:10px 13px;font-size:.9rem}
+
+  .latest-update-card{margin:12px 0 14px;padding:12px 15px;gap:14px;border-radius:10px}
+  .latest-update-card .eyebrow{font-size:.66rem;margin-bottom:4px}
+  .latest-update-card h2{font-size:1.05rem;margin-bottom:3px}
+  .latest-update-card p:not(.eyebrow){font-size:.8rem;line-height:1.32}
+  .latest-update-card .button{padding:7px 10px;font-size:.8rem}
+
+  .section h2,.support h2{font-size:1.05rem;margin-bottom:9px}
+  .cards{gap:8px}
+  .card{padding:11px 12px;border-radius:9px;min-height:0}
+  .card h3{font-size:.88rem;margin-bottom:4px;line-height:1.2}
+  .card h3:after{width:24px;height:2px;margin-top:5px}
+  .card p{font-size:.76rem;line-height:1.3}
+
+  .support{margin-top:18px;padding:13px 15px;gap:14px}
+  .support p{font-size:.8rem}
+  .button{padding:7px 10px;font-size:.8rem}
+
+  footer{padding:13px 18px;font-size:.76rem}
+
+  .article{max-width:760px;padding:24px 0 30px}
+  .article h1{font-size:1.82rem;margin-top:12px;margin-bottom:8px}
+  .article h2{font-size:1.08rem;margin-top:20px;margin-bottom:6px}
+  .article h3{font-size:.94rem;margin:15px 0 5px}
+  .article p,.article li{font-size:.86rem;line-height:1.45}
+  .article li{margin:3px 0}
+  .article-meta{font-size:.8rem}
+  .help-callout{padding:10px 12px;margin:12px 0}
+  .help-grid{gap:8px;margin:11px 0}
+  .help-box{padding:11px}
+  .article th,.article td{padding:8px 9px}
+
+  .release-entry{margin:14px 0;padding:14px 16px}
+  .release-entry h3{margin-top:15px}
+  .release-build{font-size:.72rem;padding:4px 7px}
+  .release-time{font-size:.78rem}
+}
