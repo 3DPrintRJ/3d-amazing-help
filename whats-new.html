@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>What’s New | 3D Amazing Help Center</title><meta name="description" content="Release notes and changelog for 3D Amazing Sales Manager."><link rel="stylesheet" href="styles.css?v=20260929-2"></head>
+<title>What’s New | 3D Amazing Help Center</title><meta name="description" content="Release notes and changelog for 3D Amazing Sales Manager."><link rel="stylesheet" href="styles.css?v=20260929-3"></head>
 <body><header class="topbar"><a class="brand" href="index.html">3D Amazing <span>Help Center</span></a><nav><a class="whats-new-nav active" href="whats-new.html">What’s New</a><a href="https://3damazing.com">3damazing.com</a><a class="app-return" href="https://app.3damazing.com">← Return to App</a></nav></header>
-<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated September 29, 2026 · 12:47 PM CDT</p>
+<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated September 29, 2026 · 12:58 PM CDT</p>
 
 <section class="release-entry latest-release" id="latest">
-<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 29, 2026 · 12:47 PM CDT</p></div><span class="release-build">0.8.0-beta.6 · Build 780532b</span></div>
+<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 29, 2026 · 12:58 PM CDT</p></div><span class="release-build">0.8.0-beta.7 · Build 486616c</span></div>
+<h3>Document email setup</h3>
+<ul>
+<li>3D Amazing now has a built-in document sender identity: <strong>3D Amazing &lt;support@3damazing.com&gt;</strong>.</li>
+<li>The app no longer requires a separate <code>DOCUMENT_EMAIL_FROM</code> environment setting. Production document email now requires only the Resend API key plus a verified <code>3damazing.com</code> sender domain.</li>
+<li>Founder Admin email diagnostics now show the built-in sender and sender domain even before the provider API key is configured.</li>
+</ul>
+<p><strong>Still required outside the app:</strong> connect/configure the Resend account, verify <code>3damazing.com</code>, and add the production <code>RESEND_API_KEY</code> secret. Then send one real document to an outside address to complete end-to-end verification.</p>
+</section>
+
+<section class="release-entry" id="beta-6-20260929">
+<div class="release-heading"><div><span class="status-label">Previous update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 29, 2026 · 12:47 PM CDT</p></div><span class="release-build">0.8.0-beta.6 · Build 780532b</span></div>
 <h3>Fixed</h3>
 <ul><li>Catalog Archive now verifies that the item actually became inactive in the active workspace before reporting success, including in Practice.</li></ul>
 <h3>Improved from beta feedback</h3>
@@ -16,24 +27,6 @@
 <li>The redundant Invoice and Quick Sale single-product quantity path was removed. Quantity is now a normal property of every item.</li>
 <li>The founder Admin page now shows document-email readiness: sender setup, provider reachability, sender-domain verification, and recent email attempts.</li>
 </ul>
-<p><strong>Email verification:</strong> Configuration diagnostics are now visible, but document email should not be considered fully verified until a real external delivery is successfully received.</p>
-</section>
-
-<section class="release-entry" id="beta-5-20260928">
-<div class="release-heading"><div><span class="status-label">Previous update</span><h2>Version 0.8 Beta</h2><p class="release-time">September 29, 2026 · 12:47 PM CDT</p></div><span class="release-build">0.8.0-beta.6 · Build cce4f56</span></div>
-<h3>Fixed</h3>
-<ul>
-<li>Catalog Archive now verifies that the item actually became inactive in the currently active workspace before reporting success. This specifically hardens Practice-mode archiving against a stale or mismatched status.</li>
-</ul>
-<h3>Improved from beta feedback</h3>
-<ul>
-<li>Archived Customers and Catalog items now stand out in All views with a distinct <strong>Archived</strong> pill and archived row/card treatment instead of relying on small status text.</li>
-<li>Customers can now be filtered by <strong>Has discount / No discount</strong> and sorted by discount high-to-low or low-to-high.</li>
-<li>Invoice, Quick Sale, and Quote now use the same quantity-aware Catalog picker. Every selected item starts at Qty 1, and its quantity can be changed before <strong>Add Selected</strong>.</li>
-<li>The redundant Invoice and Quick Sale “one product with a specific quantity” path was removed. Quantity is now a normal property of every item.</li>
-<li>The founder Admin page now includes document-email readiness diagnostics for sender configuration, provider reachability, sender-domain verification, and recent email attempts.</li>
-</ul>
-<div class="help-callout"><strong>Email verification note:</strong> The Admin diagnostics can confirm configuration and provider/domain readiness. A real outside-recipient email should still be successfully received before document email is considered fully end-to-end verified.</div>
 </section>
 
 <section class="release-entry" id="beta-5-20260928">
@@ -134,4 +127,4 @@
 <h2>About these release notes</h2>
 <p>Release notes focus on changes that affect customers. Internal development details, database maintenance, and routine technical work are omitted unless they change how the app behaves.</p>
 </section>
-</article></main><footer><span>© 3D Amazing</span><span><a href="index.html">Help Center</a> · <a href="support.html">Support</a></span></footer><script src="script.js?v=20260929-2"></script></body></html>
+</article></main><footer><span>© 3D Amazing</span><span><a href="index.html">Help Center</a> · <a href="support.html">Support</a></span></footer><script src="script.js?v=20260929-3"></script></body></html>
