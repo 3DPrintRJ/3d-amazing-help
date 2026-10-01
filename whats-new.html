@@ -2,10 +2,30 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What’s New | 3D Amazing Help Center</title><meta name="description" content="Release notes and changelog for 3D Amazing Sales Manager."><link rel="stylesheet" href="styles.css?v=20260929-5"></head>
 <body><header class="topbar"><a class="brand" href="index.html">3D Amazing <span>Help Center</span></a><nav><a class="whats-new-nav active" href="whats-new.html">What’s New</a><a href="https://3damazing.com">3damazing.com</a><a class="app-return" href="https://app.3damazing.com">← Return to App</a></nav></header>
-<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated September 30, 2026 · 8:50 PM CDT</p>
+<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated October 1, 2026 · 1:53 PM CDT</p>
 
 <section class="release-entry latest-release" id="latest">
-<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 1.0 Beta</h2><p class="release-time">September 30, 2026 · 8:50 PM CDT</p></div><span class="release-build">1.0.0-beta.1 · Build 77381ce</span></div>
+<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 1.0 Beta</h2><p class="release-time">October 1, 2026 · 1:53 PM CDT</p></div><span class="release-build">1.0.0-beta.2 · Build c502c46</span></div>
+<h3>Seller card-payment processing foundation</h3>
+<ul>
+<li>Added <strong>Settings → Payment Processing</strong> so a seller can configure one default card processor instead of choosing a processor on every sale.</li>
+<li>Quick Sale now uses the simple payment choices <strong>Cash / Card / Other</strong>. Choosing Card automatically uses the configured default processor.</li>
+<li>Added <strong>External Card Processor</strong> as the universal fallback for sellers who use another terminal or unsupported provider.</li>
+<li>Added Square account connection and mobile Square POS-app handoff architecture for supported iPhone/Android workflows.</li>
+<li>Added Stripe Connect seller-account support and Stripe Terminal smart-reader support, including simulated-reader testing in Stripe test mode.</li>
+</ul>
+<h3>Payment safety and reliability</h3>
+<ul>
+<li>3D Amazing does <strong>not</strong> collect or store full card numbers, CVV, magnetic-stripe data, chip data, NFC/contactless credentials, or raw card credentials.</li>
+<li>Processor callbacks and webhooks are verified and reconciled before a processor payment is attached to the normal 3D Amazing receipt/payment record.</li>
+<li>Duplicate processor transactions and duplicate webhook events are guarded against, and interrupted browser sessions can recover an unfinished processor attempt without inviting a second charge.</li>
+<li>Square Sandbox remains useful for connection/API testing, but Square POS-app transactions are intentionally blocked there because Square does not support POS API Sandbox payments.</li>
+<li>Live Square and live Stripe seller payments remain safety-locked until explicitly enabled on the server. No real payment was initiated during this release work.</li>
+</ul>
+</section>
+
+<section class="release-entry" id="beta-1-20260930">
+<div class="release-heading"><div><span class="status-label">Previous update</span><h2>Version 1.0 Beta</h2><p class="release-time">September 30, 2026 · 8:50 PM CDT</p></div><span class="release-build">1.0.0-beta.1 · Build 77381ce</span></div>
 <h3>Beta testing release</h3>
 <ul>
 <li>3D Amazing has moved from the internal <strong>1.0 Alpha</strong> baseline to <strong>1.0 Beta</strong> for controlled outside testing.</li>
