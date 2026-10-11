@@ -2,10 +2,35 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What’s New | 3D Amazing Help Center</title><meta name="description" content="Release notes and changelog for 3D Amazing Sales Manager."><link rel="stylesheet" href="styles.css?v=20260929-5"></head>
 <body><header class="topbar"><a class="brand" href="index.html">3D Amazing <span>Help Center</span></a><nav><a class="whats-new-nav active" href="whats-new.html">What’s New</a><a href="https://3damazing.com">3damazing.com</a><a class="app-return" href="https://app.3damazing.com">← Return to App</a></nav></header>
-<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated October 1, 2026 · 2:09 PM CDT</p>
+<main><article class="article changelog"><a class="back" href="index.html">← Help Center</a><p class="eyebrow changelog-eyebrow">3D Amazing Sales Manager</p><h1>What’s New</h1><p>Release notes are listed newest first. Check here after an app update to see what changed.</p><p class="article-meta">Changelog · Updated October 11, 2026 · 5:30 PM CDT</p>
 
 <section class="release-entry latest-release" id="latest">
-<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 1.1 Beta</h2><p class="release-time">October 1, 2026 · 2:09 PM CDT</p></div><span class="release-build">1.1.0-beta · Build 95595bf</span></div>
+<div class="release-heading"><div><span class="status-label live">Latest update</span><h2>Version 1.1 Beta</h2><p class="release-time">October 11, 2026 · 5:30 PM CDT</p></div><span class="release-build">1.1.0-beta · Build 5a992fe</span></div>
+<h3>Stripe payment completion and refunds</h3>
+<ul>
+<li>Completed Stripe Quick Sale payment handling with successful, declined, insufficient-funds, cancelled, and interrupted/recovery test scenarios.</li>
+<li>Processor payments now retain provider, transaction reference, paid time, and related audit details in Receipts, Payments, and Reports.</li>
+<li>Stripe-paid Quick Sales now use a processor-aware void flow: the full Stripe refund must succeed before the Receipt is marked Void.</li>
+<li>Refund amount, refund time, provider refund reference, and the original payment remain visible in history.</li>
+</ul>
+<h3>Founder user monitoring</h3>
+<ul>
+<li>Admin → Users &amp; Subscriptions now shows last app use, users active in the last 7 days, and recent authenticated sign-in, sign-out, and app-area activity.</li>
+<li>Future account deletions are recorded in founder-only history without reconstructing earlier deleted test accounts.</li>
+<li>Password-reset confirmation no longer reveals whether the entered email belongs to an account.</li>
+<li>Email diagnostics now distinguish recent provider acceptance from domain-verification checks when a send-only Resend key is used.</li>
+</ul>
+<h3>Square Production preparation</h3>
+<ul>
+<li>Hardened Square callback and payment reconciliation so an unverified return cannot release duplicate-payment protection.</li>
+<li>Separated Square Sandbox and Production webhook endpoints and signing keys; Production webhook test events return 200 OK on the Production-only endpoint.</li>
+<li>Added separate Square Sandbox and Production OAuth credentials and connection actions so the real seller account can be connected without overwriting Sandbox credentials used for testing.</li>
+<li>Live Square charges remain safety-locked until the controlled real transaction test is explicitly enabled.</li>
+</ul>
+</section>
+
+<section class="release-entry" id="beta-1-20261001">
+<div class="release-heading"><div><span class="status-label">Previous update</span><h2>Version 1.1 Beta</h2><p class="release-time">October 1, 2026 · 2:09 PM CDT</p></div><span class="release-build">1.1.0-beta · Build 95595bf</span></div>
 <h3>Seller card-payment processing foundation</h3>
 <ul>
 <li>Added <strong>Settings → Payment Processing</strong> so a seller can configure one default card processor instead of choosing a processor on every sale.</li>
