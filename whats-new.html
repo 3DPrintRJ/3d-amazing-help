@@ -13,19 +13,15 @@
 <li>Stripe-paid Quick Sales now use a processor-aware void flow: the full Stripe refund must succeed before the Receipt is marked Void.</li>
 <li>Refund amount, refund time, provider refund reference, and the original payment remain visible in history.</li>
 </ul>
-<h3>Founder user monitoring</h3>
+<h3>Account and sign-in improvements</h3>
 <ul>
-<li>Admin → Users &amp; Subscriptions now shows last app use, users active in the last 7 days, and recent authenticated sign-in, sign-out, and app-area activity.</li>
-<li>Future account deletions are recorded in founder-only history without reconstructing earlier deleted test accounts.</li>
 <li>Password-reset confirmation no longer reveals whether the entered email belongs to an account.</li>
-<li>Email diagnostics now distinguish recent provider acceptance from domain-verification checks when a send-only Resend key is used.</li>
 </ul>
-<h3>Square Production preparation</h3>
+<h3>Square connection setup</h3>
 <ul>
-<li>Hardened Square callback and payment reconciliation so an unverified return cannot release duplicate-payment protection.</li>
-<li>Separated Square Sandbox and Production webhook endpoints and signing keys; Production webhook test events return 200 OK on the Production-only endpoint.</li>
-<li>Added separate Square Sandbox and Production OAuth credentials and connection actions so the real seller account can be connected without overwriting Sandbox credentials used for testing.</li>
-<li>Live Square charges remain safety-locked until the controlled real transaction test is explicitly enabled.</li>
+<li>Business Settings now distinguishes Square Sandbox setup from Square Production connection.</li>
+<li>Sandbox remains available for connection testing, while Production is kept separate for the seller’s real Square account.</li>
+<li>Live Square charging remains unavailable until the controlled production test is completed.</li>
 </ul>
 </section>
 
