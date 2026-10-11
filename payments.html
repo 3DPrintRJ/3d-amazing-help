@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Payments | 3D Amazing Help Center</title><meta name="description" content="Apply payments, track balances, and email payment receipts."><link rel="stylesheet" href="styles.css?v=20260929-4"></head>
 <body><header class="topbar"><a class="brand" href="index.html">3D Amazing <span>Help Center</span></a><nav><a href="https://3damazing.com">3damazing.com</a><a class="app-return" href="https://app.3damazing.com">← Return to App</a></nav></header>
-<main><article class="article"><a class="back" href="index.html">← Help Center</a><h1>Payments</h1><p>Apply full or partial payments to open Invoices. Balances and Paid status update automatically.</p><p class="article-meta">Current beta documentation · Updated October 1, 2026 · 1:53 PM CDT</p>
+<main><article class="article"><a class="back" href="index.html">← Help Center</a><h1>Payments</h1><p>Apply full or partial payments to open Invoices. Balances and Paid status update automatically.</p><p class="article-meta">Current beta documentation · Updated October 11, 2026</p>
 <h2>Card payment processing</h2>
 <p>3D Amazing can connect a seller’s existing card processor to the normal Quick Sale payment workflow. Configure the default card processor once in <strong>Settings → Payment Processing</strong>.</p>
 <ul>
@@ -19,10 +19,11 @@
 <p>The default payment date follows the business timezone rather than UTC.</p>
 <p>If the selected Invoice is still a Draft, recording the payment finalizes it first. The Invoice becomes Open, receives its normal finalization timestamp and audit history, and then the payment is applied.</p>
 <h2>Partial payments</h2><p>The remaining balance stays open until fully paid. At zero balance, the Invoice becomes Paid.</p>
-<h2>Payment history</h2><p>History shows date, Invoice, Customer, amount, method, reference, status, and available actions.</p>
+<h2>Payment history</h2><p>History shows date, Invoice or Receipt, Customer, amount, method, reference, status, and available actions. Integrated processor payments also retain the processor name, provider transaction/reference ID, and paid timestamp so the charge can be traced later.</p>
+<h3>Stripe refund history</h3><p>When a Stripe-paid Quick Sale is fully refunded through 3D Amazing, the original payment remains in history and the refund records its amount, time, provider refund ID, and refunded status. The related Receipt is marked Void only after the processor confirms the full refund.</p>
 <h2>Correct or cancel a recorded payment</h2>
 <p>Posted Invoice payments are corrected by voiding them rather than silently editing or deleting the original record.</p>
 <ol><li>Find the payment in Payment history or the Customer’s Payments tab.</li><li>Choose <strong>Void Payment</strong>.</li><li>Review the Invoice and amount shown in the confirmation.</li><li>Confirm <strong>Void Payment</strong>.</li></ol>
 <p>The payment remains in history with <strong>Void</strong> status, and its amount is restored to the Invoice balance. If the original entry was wrong, record a new payment with the correct information afterward.</p>
-<p>Quick Sale payments are part of the completed receipt. To correct one, open the Quick Sale receipt and use the Quick Sale void workflow instead of voiding the payment separately.</p>
+<p>Quick Sale payments are part of the completed receipt. To correct one, open the Quick Sale receipt and use the Quick Sale void workflow instead of voiding the payment separately. For integrated processors, 3D Amazing may require a processor refund before the receipt can be voided.</p>
 <h2>Email Payment Receipt</h2><p>Use <strong>Email Receipt</strong> in Payment history. The Customer email is prefilled when available, and a one-time address may be entered without changing the Customer record. The email contains a short cover message and attaches the Payment Receipt as a PDF.</p></article></main><footer><span>© 3D Amazing</span><span><a href="index.html">Help Center</a> · <a href="support.html">Support</a></span></footer><script src="script.js?v=20260929-4"></script></body></html>
