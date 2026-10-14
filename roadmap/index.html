@@ -5,6 +5,85 @@
 <title>Product Roadmap | 3D Amazing</title>
 <meta name="description" content="See what's available now and what's planned next for 3D Amazing Sales Manager.">
 <link rel="stylesheet" href="../styles.css?v=20261014-roadmap-1">
+
+<style id="road-journey-theme">
+/* Single-page illustrated roadmap; all classes scoped to this page. */
+.road-journey-page{max-width:1130px;margin:0 auto;padding:34px 10px 45px}
+.road-journey-page h1{font-size:clamp(2.15rem,3.8vw,3.35rem);letter-spacing:-.045em;margin-top:13px}
+.road-journey-page .roadmap-lede{max-width:750px;color:#475467;font-size:1.14rem;line-height:1.55}
+.road-legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin:22px 0 12px}
+.road-legend span{font-size:.94rem;color:#344054;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+.road-legend .dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
+.dot--next{background:#28754d}.dot--future{background:#315e90}.dot--deferred{background:#707782}
+.road-disclaimer{color:#475467;max-width:900px;line-height:1.55;border-left:4px solid #b99627;padding:9px 14px;background:#fffaf0;border-radius:6px}
+.road-scene{position:relative;max-width:1100px;height:2585px;margin:28px auto 0;background:linear-gradient(105deg,rgba(232,245,235,.75),rgba(246,249,248,.4) 40%,rgba(237,244,232,.68));border:1px solid #e1e7dc;border-radius:24px;overflow:hidden}
+.winding-road-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.road-stop{height:235px;position:relative;z-index:1;display:flex;align-items:flex-start;padding-top:19px}
+.road-stop--left{justify-content:flex-start;padding-left:2.3%}
+.road-stop--right{justify-content:flex-end;padding-right:2.3%}
+.road-pin{position:absolute;z-index:3;left:var(--stop-x);top:95px;transform:translate(-50%,-50%);width:40px;height:40px;background:#fefaf0;border:5px solid #263140;border-radius:50%;font-size:1rem;font-weight:900;color:#263140;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.25)}
+.road-stop--next .road-pin{border-color:#28754d;color:#28754d}
+.road-stop--future .road-pin{border-color:#315e90;color:#315e90}
+.road-stop--deferred .road-pin{border-color:#707782;color:#707782}
+.road-card{position:relative;width:38%;background:#fff;border:1px solid #d4dce4;border-radius:16px;padding:13px 15px 14px;box-shadow:0 9px 20px rgba(30,40,50,.1);min-height:140px}
+.road-card:after{content:"";position:absolute;top:75px;width:16px;height:3px;background:#d6b64c}
+.road-stop--left .road-card:after{right:-16px}
+.road-stop--right .road-card:after{left:-16px}
+.road-card h3{font-size:1.18rem;line-height:1.25;margin:0 0 7px;color:#172033}
+.road-card p{font-size:.96rem;line-height:1.47;color:#475467;margin:0}
+.road-card .road-tiny{font-size:.81rem;margin-top:6px}
+.road-status{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.045em;margin:0 0 9px}
+.road-status--start{color:#855900}.road-status--next{color:#28754d}.road-status--future{color:#315e90}.road-status--deferred{color:#67727e}
+.road-sign{position:absolute;top:-29px;left:12px;font-size:.73rem;font-weight:900;letter-spacing:.06em;color:#fff;background:#344054;border:2px solid #fff;border-radius:7px;padding:5px 10px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.road-start-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #93680d;background:#d6b64c;color:#172033;font-weight:800;font-size:.96rem;border-radius:9px;padding:11px 13px;margin-top:12px;min-height:44px;cursor:pointer}
+.road-start-button:hover,.road-start-button:focus-visible{background:#e7c968;outline-offset:3px}
+.road-end{max-width:890px;margin:24px auto 10px;padding:23px 25px;background:#fff;border:1px solid #dbe2ea;border-radius:18px}
+.road-end h2{margin-top:0}
+.road-end p{font-size:1rem;line-height:1.55}
+.road-end-link{margin-left:18px;font-weight:700}
+.current-dialog{width:min(940px,95vw);max-height:min(88vh,950px);border:0;border-radius:19px;padding:23px;background:#fff;color:#172033;box-shadow:0 25px 70px rgba(0,0,0,.3);overflow:auto}
+.current-dialog::backdrop{background:rgba(16,24,40,.65)}
+.current-dialog-header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.current-dialog-header h2{font-size:1.75rem;margin:0 0 8px}
+.current-dialog-header p{color:#475467;font-size:1rem;line-height:1.5;margin:0}
+.current-dialog-close{font:inherit;font-size:1.5rem;min-width:44px;min-height:44px;border:1px solid #dbe2ea;border-radius:50%;background:#fff;cursor:pointer}
+.current-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:20px 0}
+.current-feature{border:1px solid #dbe2ea;border-radius:11px;padding:15px;background:#f8fafc}
+.current-feature h3{font-size:1.08rem;margin:0 0 7px}
+.current-feature p{font-size:.97rem;color:#475467;line-height:1.48;margin:0}
+.current-dialog-footer{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:15px}
+.current-dialog-footer .road-start-button{margin:0}
+@media (max-width: 850px){
+ .road-journey-page{padding:20px 0 30px}
+ .road-scene{height:auto;padding:22px 12px 16px 52px}
+ .winding-road-svg{display:none}
+ .road-scene:before{content:"";position:absolute;top:0;bottom:0;left:25px;width:8px;background:#555f6c;border-left:1px solid #263140;border-right:1px solid #263140;border-radius:8px}
+ .road-scene:after{content:"";position:absolute;top:8px;bottom:8px;left:28px;border-left:2px dashed #f8f1d5}
+ .road-stop,.road-stop--left,.road-stop--right{height:auto;min-height:0;display:block;padding:0;margin:0 0 25px}
+ .road-card{width:100%;min-height:0;padding:15px}
+ .road-card:after{display:none}
+ .road-pin{left:-23px;top:64px;width:31px;height:31px;border-width:4px;font-size:.78rem}
+ .road-sign{position:static;display:inline-block;margin:-4px 0 8px}
+ .current-feature-grid{grid-template-columns:1fr}
+}
+@media (max-width: 600px){
+ .road-scene{margin-top:18px;border-radius:14px}
+ .roadmap-lede{font-size:1rem!important}
+ .road-journey-page .road-card h3{font-size:1.09rem}
+ .road-journey-page .road-card p{font-size:.95rem}
+ .road-end{padding:18px}
+ .road-end-link{display:block;margin:14px 0 0}
+ .current-dialog{padding:16px}
+ .current-dialog-header h2{font-size:1.35rem}
+}
+@media print{
+ .road-scene{height:auto;background:none;border:0}
+ .winding-road-svg,.road-pin,.road-start-button{display:none}
+ .road-stop{height:auto;display:block;padding:0;margin:0 0 12px}
+ .road-card{width:100%;box-shadow:none;break-inside:avoid}
+ .current-dialog{display:none}
+}
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -17,65 +96,161 @@
 </nav>
 </header>
 <main>
-<article class="article roadmap-page">
+<article class="article roadmap-page road-journey-page">
 <a class="back" href="../index.html">← Help Center</a>
 <p class="eyebrow roadmap-eyebrow">3D Amazing Sales Manager</p>
-<h1>Product Roadmap</h1>
-<p class="roadmap-lede">A clear look at what 3D Amazing does today and what we're working toward for makers, crafters, and small product sellers.</p>
-<p class="article-meta">Last reviewed: October 14, 2026 · Version 1.1 Beta</p>
-<p class="roadmap-note"><strong>During our invitation-only beta,</strong> we're prioritizing reliable everyday selling. Planned features are not yet available, and the order may change based on testing and customer feedback. This is a product direction, not a release-date promise.</p>
-
-<nav class="roadmap-jump" aria-label="Roadmap sections">
-<a href="#available">Available now</a><a href="#next">Planned next</a><a href="#future">Future</a><a href="#deferred">Deferred</a>
-</nav>
-
-<section class="roadmap-group" id="available" aria-labelledby="available-title">
-<div class="roadmap-heading"><div><p class="eyebrow">Working features</p><h2 id="available-title">Available now</h2></div><span class="roadmap-state shipped">In the beta</span></div>
-<div class="roadmap-grid">
-<div class="roadmap-item"><h3>Catalog, pricing &amp; inventory</h3><p>Manage products, prices, costing, assemblies, stock levels, and archived items.</p></div>
-<div class="roadmap-item"><h3>Customers &amp; sales documents</h3><p>Manage customers and create Quick Sales, receipts, invoices, and quotes with discounts and tax calculations.</p></div>
-<div class="roadmap-item"><h3>Payments &amp; receipts</h3><p>Record payments and send or print documents. Square and Stripe seller-payment integrations are being tested in the controlled beta; availability depends on connected account and supported setup.</p></div>
-<div class="roadmap-item"><h3>Events &amp; craft-show workflows</h3><p>Organize sales by event, record event expenses, and use offline Show Mode for supported Quick Sale workflows.</p></div>
-<div class="roadmap-item"><h3>Reports &amp; sales tax</h3><p>Review sales, payments, customers, events, and sales tax charged by component. Existing reports are not a tax filing service.</p></div>
-<div class="roadmap-item"><h3>Data tools &amp; Practice</h3><p>Import and export supported Catalog/customer data, back up the business, and use a separate Practice area.</p></div>
+<h1>The Road Ahead</h1>
+<p class="roadmap-lede">Follow the winding road from our current beta to what we are planning next for makers, crafters, and small product sellers.</p>
+<p class="article-meta">Updated October 14, 2026 · Version 1.1 Beta</p>
+<div class="road-legend" aria-label="Roadmap status key">
+<span><i class="dot dot--next" aria-hidden="true"></i> Coming next</span>
+<span><i class="dot dot--future" aria-hidden="true"></i> Further ahead</span>
+<span><i class="dot dot--deferred" aria-hidden="true"></i> Under consideration</span>
 </div>
-</section>
+<p class="road-disclaimer"><strong>During our invitation-only beta:</strong> These plans show direction, not release dates. Priorities may change based on testing and feedback.</p>
+<section class="road-scene" aria-label="Winding road of upcoming features">
+<svg class="winding-road-svg" viewBox="0 0 1100 2585" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+<path d="M 545 110 C 560.0 149.2 646.7 266.7 635 345 C 623.3 423.3 476.2 501.7 475 580 C 473.8 658.3 628.0 736.7 628 815 C 628.0 893.3 475.5 971.7 475 1050 C 474.5 1128.3 624.5 1206.7 625 1285 C 625.5 1363.3 479.2 1441.7 478 1520 C 476.8 1598.3 619.3 1676.7 618 1755 C 616.7 1833.3 469.7 1911.7 470 1990 C 470.3 2068.3 609.2 2146.7 620 2225 C 630.8 2303.3 549.2 2420.8 535 2460" fill="none" stroke="#1e293b" stroke-width="116" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 545 110 C 560.0 149.2 646.7 266.7 635 345 C 623.3 423.3 476.2 501.7 475 580 C 473.8 658.3 628.0 736.7 628 815 C 628.0 893.3 475.5 971.7 475 1050 C 474.5 1128.3 624.5 1206.7 625 1285 C 625.5 1363.3 479.2 1441.7 478 1520 C 476.8 1598.3 619.3 1676.7 618 1755 C 616.7 1833.3 469.7 1911.7 470 1990 C 470.3 2068.3 609.2 2146.7 620 2225 C 630.8 2303.3 549.2 2420.8 535 2460" fill="none" stroke="#555f6c" stroke-width="108" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 545 110 C 560.0 149.2 646.7 266.7 635 345 C 623.3 423.3 476.2 501.7 475 580 C 473.8 658.3 628.0 736.7 628 815 C 628.0 893.3 475.5 971.7 475 1050 C 474.5 1128.3 624.5 1206.7 625 1285 C 625.5 1363.3 479.2 1441.7 478 1520 C 476.8 1598.3 619.3 1676.7 618 1755 C 616.7 1833.3 469.7 1911.7 470 1990 C 470.3 2068.3 609.2 2146.7 620 2225 C 630.8 2303.3 549.2 2420.8 535 2460" fill="none" stroke="#f8f1d5" stroke-width="5" stroke-dasharray="22 24" stroke-linecap="round"/>
+</svg>
+<div class="road-stop road-stop--left road-stop--start" id="road-start" style="--stop-x:49.55%;--stop-num:1">
+<div class="road-pin" aria-hidden="true">★</div>
+<div class="road-card">
+<span class="road-sign">START</span>
+<div class="road-status road-status--start">Current beta</div>
+<h3>The road starts here</h3>
+<p>See everything 3D Amazing already does in the current beta, then follow the road to the features we are planning next.</p>
+<button type="button" class="road-start-button" id="open-current" aria-haspopup="dialog" aria-controls="current-features-dialog">Show Current Features <span aria-hidden="true">→</span></button><p class="road-tiny">Opens an overview here—no page change.</p>
+</div></div>
+<div class="road-stop road-stop--right road-stop--next" id="milestone-1" style="--stop-x:57.73%;--stop-num:2">
+<div class="road-pin" aria-hidden="true">1</div>
+<div class="road-card">
+<span class="road-sign">NEXT STOP</span>
+<div class="road-status road-status--next">Coming next</div>
+<h3>Etsy shop integration</h3>
+<p>Connect an Etsy shop, match listings to Catalog products, and import marketplace orders, fees, refunds, and tax information with duplicate protection.</p>
 
-<section class="roadmap-group" id="next" aria-labelledby="next-title">
-<div class="roadmap-heading"><div><p class="eyebrow">Highest priorities</p><h2 id="next-title">Planned next</h2></div><span class="roadmap-state upcoming">Not released</span></div>
-<div class="roadmap-grid">
-<div class="roadmap-item"><h3>Etsy shop integration</h3><p>Connect an Etsy shop, match listings to Catalog products, and import marketplace orders, fees, refunds, and tax information with duplicate protection.</p></div>
-<div class="roadmap-item"><h3>PayPal seller payments</h3><p>Offer PayPal as an optional payment method alongside a seller's existing card processor, subject to provider requirements and testing.</p></div>
-<div class="roadmap-item"><h3>Better tax exports</h3><p>Download accountant-friendly sales and tax details, including discounts, payment methods, refunds, and marketplace-collected tax.</p></div>
-<div class="roadmap-item"><h3>Schedule C Tax Prep Packet</h3><p>Prepare business sales and expense summaries to help sellers organize records for a tax professional. Not tax filing or advice.</p></div>
+</div></div>
+<div class="road-stop road-stop--left road-stop--next" id="milestone-2" style="--stop-x:43.18%;--stop-num:3">
+<div class="road-pin" aria-hidden="true">2</div>
+<div class="road-card">
+
+<div class="road-status road-status--next">Coming next</div>
+<h3>PayPal seller payments</h3>
+<p>Offer PayPal as an optional payment method alongside a seller's existing card processor, subject to provider requirements and testing.</p>
+
+</div></div>
+<div class="road-stop road-stop--right road-stop--next" id="milestone-3" style="--stop-x:57.09%;--stop-num:4">
+<div class="road-pin" aria-hidden="true">3</div>
+<div class="road-card">
+
+<div class="road-status road-status--next">Coming next</div>
+<h3>Better tax exports</h3>
+<p>Download accountant-friendly sales and tax details, including discounts, payment methods, refunds, and marketplace-collected tax.</p>
+
+</div></div>
+<div class="road-stop road-stop--left road-stop--next" id="milestone-4" style="--stop-x:43.18%;--stop-num:5">
+<div class="road-pin" aria-hidden="true">4</div>
+<div class="road-card">
+
+<div class="road-status road-status--next">Coming next</div>
+<h3>Schedule C Tax Prep Packet</h3>
+<p>Prepare business sales and expense summaries to help sellers organize records for a tax professional. Not tax filing or advice.</p>
+
+</div></div>
+<div class="road-stop road-stop--right road-stop--future" id="milestone-5" style="--stop-x:56.82%;--stop-num:6">
+<div class="road-pin" aria-hidden="true">5</div>
+<div class="road-card">
+<span class="road-sign">FURTHER AHEAD</span>
+<div class="road-status road-status--future">Further ahead</div>
+<h3>Shopify integration</h3>
+<p>Connect additional online sales channels to the same Catalog and reporting workflow after Etsy.</p>
+
+</div></div>
+<div class="road-stop road-stop--left road-stop--future" id="milestone-6" style="--stop-x:43.45%;--stop-num:7">
+<div class="road-pin" aria-hidden="true">6</div>
+<div class="road-card">
+
+<div class="road-status road-status--future">Further ahead</div>
+<h3>Other marketplace connections</h3>
+<p>Evaluate Amazon Selling Partner API and TikTok Shop integrations as seller demand grows.</p>
+
+</div></div>
+<div class="road-stop road-stop--right road-stop--future" id="milestone-7" style="--stop-x:56.18%;--stop-num:8">
+<div class="road-pin" aria-hidden="true">7</div>
+<div class="road-card">
+
+<div class="road-status road-status--future">Further ahead</div>
+<h3>Expanded marketplace reconciliation</h3>
+<p>More detailed settlement, fee, and sales-channel reporting once the initial import workflow is proven.</p>
+
+</div></div>
+<div class="road-stop road-stop--left road-stop--deferred" id="milestone-8" style="--stop-x:42.73%;--stop-num:9">
+<div class="road-pin" aria-hidden="true">8</div>
+<div class="road-card">
+<span class="road-sign">SCENIC ROUTE</span>
+<div class="road-status road-status--deferred">Under consideration</div>
+<h3>Multi-user / teams</h3>
+<p>For now, 3D Amazing is designed around one business owner. Team access may be considered later.</p>
+
+</div></div>
+<div class="road-stop road-stop--right road-stop--deferred" id="milestone-9" style="--stop-x:56.36%;--stop-num:10">
+<div class="road-pin" aria-hidden="true">9</div>
+<div class="road-card">
+
+<div class="road-status road-status--deferred">Under consideration</div>
+<h3>More payment hardware &amp; providers</h3>
+<p>Additional processor integrations, such as Clover, remain under consideration rather than in active development.</p>
+
+</div></div>
+<div class="road-stop road-stop--left road-stop--deferred" id="milestone-10" style="--stop-x:48.64%;--stop-num:11">
+<div class="road-pin" aria-hidden="true">10</div>
+<div class="road-card">
+
+<div class="road-status road-status--deferred">Under consideration</div>
+<h3>Unified commerce services</h3>
+<p>Third-party services for connecting many marketplaces are being deferred while we focus on direct integrations.</p>
+
+</div></div>
+</section>
+<section class="road-end">
+<p class="eyebrow">End of the road—for now</p>
+<h2>Help shape what comes next</h2>
+<p>We are building 3D Amazing around how makers and small sellers actually work. Tell us which feature would make the biggest difference to you.</p>
+<a class="button" href="../support.html">Share your feedback</a>
+<a class="road-end-link" href="../whats-new.html">View recent releases →</a>
+</section>
+<dialog class="current-dialog" id="current-features-dialog" aria-labelledby="current-features-heading">
+<div class="current-dialog-header">
+<div><p class="eyebrow">The road so far</p><h2 id="current-features-heading">Features available now</h2><p>Core features included in the current 3D Amazing beta. Some payment integrations depend on account setup and testing.</p></div>
+<button type="button" id="current-close" class="current-dialog-close" aria-label="Close current features">×</button>
 </div>
-</section>
-
-<section class="roadmap-group" id="future" aria-labelledby="future-title">
-<div class="roadmap-heading"><div><p class="eyebrow">Longer-term goals</p><h2 id="future-title">Future</h2></div><span class="roadmap-state">Not scheduled</span></div>
-<div class="roadmap-grid">
-<div class="roadmap-item"><h3>Shopify integration</h3><p>Connect additional online sales channels to the same Catalog and reporting workflow after Etsy.</p></div>
-<div class="roadmap-item"><h3>Other marketplace connections</h3><p>Evaluate Amazon Selling Partner API and TikTok Shop integrations as seller demand grows.</p></div>
-<div class="roadmap-item"><h3>Expanded marketplace reconciliation</h3><p>More detailed settlement, fee, and sales-channel reporting once the initial import workflow is proven.</p></div>
-</div>
-</section>
-
-<section class="roadmap-group" id="deferred" aria-labelledby="deferred-title">
-<div class="roadmap-heading"><div><p class="eyebrow">Not a current priority</p><h2 id="deferred-title">Deferred</h2></div><span class="roadmap-state">Revisit later</span></div>
-<div class="roadmap-grid">
-<div class="roadmap-item"><h3>Multi-user / teams</h3><p>For now, 3D Amazing is designed around one business owner. Team access may be considered later.</p></div>
-<div class="roadmap-item"><h3>More payment hardware &amp; providers</h3><p>Additional processor integrations, such as Clover, remain under consideration rather than in active development.</p></div>
-<div class="roadmap-item"><h3>Unified commerce services</h3><p>Third-party services for connecting many marketplaces are being deferred while we focus on direct integrations.</p></div>
-</div>
-</section>
-
-<section class="roadmap-feedback">
-<h2>Have an idea or found a problem?</h2>
-<p>Tell us which improvements would help your business. We review suggestions as we plan future beta updates.</p>
-<a class="button" href="../support.html">Contact support</a>
-<a class="roadmap-text-link" href="../whats-new.html">See released changes →</a>
-</section>
+<div class="current-feature-grid"><div class="current-feature"><h3>Catalog, pricing &amp; inventory</h3><p>Manage products, prices, costing, assemblies, stock levels, and archived items.</p></div>
+<div class="current-feature"><h3>Customers &amp; sales documents</h3><p>Manage customers and create Quick Sales, receipts, invoices, and quotes with discounts and tax calculations.</p></div>
+<div class="current-feature"><h3>Payments &amp; receipts</h3><p>Record payments and send or print documents. Square and Stripe seller-payment integrations are being tested in the controlled beta; availability depends on connected account and supported setup.</p></div>
+<div class="current-feature"><h3>Events &amp; craft-show workflows</h3><p>Organize sales by event, record event expenses, and use offline Show Mode for supported Quick Sale workflows.</p></div>
+<div class="current-feature"><h3>Reports &amp; sales tax</h3><p>Review sales, payments, customers, events, and sales tax charged by component. Existing reports are not a tax filing service.</p></div>
+<div class="current-feature"><h3>Data tools &amp; Practice</h3><p>Import and export supported Catalog/customer data, back up the business, and use a separate Practice area.</p></div></div>
+<div class="current-dialog-footer"><a href="../whats-new.html">See what's new</a><button type="button" id="current-close-footer" class="road-start-button">Back to roadmap</button></div>
+</dialog>
 </article>
 </main>
 <footer><span>© 3D Amazing</span><span><a href="https://3damazing.com">Main site</a> · <a href="../index.html">Help Center</a> · <a href="../support.html">Support</a></span></footer>
+
+<script>
+(() => {
+  const dialog = document.getElementById('current-features-dialog');
+  const open = document.getElementById('open-current');
+  const close = () => { if (dialog && dialog.open) dialog.close(); };
+  if (!dialog || !open) return;
+  open.addEventListener('click', () => {
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else { dialog.setAttribute('open', ''); dialog.focus(); }
+  });
+  document.getElementById('current-close')?.addEventListener('click', close);
+  document.getElementById('current-close-footer')?.addEventListener('click', close);
+  dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
+})();
+</script>
 </body></html>
