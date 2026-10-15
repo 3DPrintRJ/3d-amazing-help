@@ -175,7 +175,7 @@
  <p>See what other makers have suggested, vote for improvements you want, or send us your own idea.</p></div>
  <div class="road-ideas-actions"><a class="road-top-action" href="#idea-form">Suggest an Idea ↓</a></div></div>
  <div class="road-ideas-controls">
- <label>Show<select id="idea-status-filter"><option value="all">All ideas</option><option value="planned">Planned</option><option value="under_review">Under review</option><option value="in_progress">In progress</option><option value="shipped">Shipped</option></select></label>
+ <label>Show<select id="idea-status-filter"><option value="all">All ideas</option><option value="planned">Planned</option><option value="under_review">Under Consideration</option><option value="in_progress">In progress</option><option value="shipped">Shipped</option></select></label>
  <label>Sort<select id="idea-sort"><option value="popular">Most votes</option><option value="newest">Newest first</option></select></label>
  </div>
  <div class="road-ideas-list" id="idea-list" aria-live="polite"><p class="road-ideas-empty">Loading feature ideas…</p></div>
@@ -367,7 +367,7 @@
   if(content!==undefined)node.textContent=content;
   return node;
  }
- const labels={under_review:"Under review",planned:"Planned",in_progress:"In progress",shipped:"Shipped",not_planned:"Not planned"};
+ const labels={under_review:"Under Consideration",planned:"Planned",in_progress:"In progress",shipped:"Shipped",not_planned:"Not planned"};
  function showNotice(message,error=false){
   notice.textContent=message;
   notice.classList.toggle("is-error",error);
@@ -406,7 +406,7 @@
    const details=el("div","idea-card-body");
    details.append(el("h3","idea-card-title",idea.title),el("p","idea-card-description",idea.details));
    const meta=el("div","idea-meta");
-   meta.append(el("span","idea-status idea-status--"+idea.status,labels[idea.status]||"Under review"));
+   meta.append(el("span","idea-status idea-status--"+idea.status,labels[idea.status]||"Under Consideration"));
    if(idea.source==="official")meta.append(el("span","idea-official","3D Amazing roadmap"));
    details.append(meta);
    card.append(up,details);
