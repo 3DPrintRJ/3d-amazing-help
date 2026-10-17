@@ -16,17 +16,17 @@
 .road-legend .dot{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
 .dot--next{background:#28754d}.dot--future{background:#315e90}.dot--deferred{background:#707782}
 .road-disclaimer{color:#475467;max-width:900px;line-height:1.55;border-left:4px solid #b99627;padding:9px 14px;background:#fffaf0;border-radius:6px}
-.road-scene{position:relative;max-width:1100px;height:2585px;margin:28px auto 0;background:linear-gradient(105deg,rgba(232,245,235,.75),rgba(246,249,248,.4) 40%,rgba(237,244,232,.68));border:1px solid #e1e7dc;border-radius:24px;overflow:hidden}
+.road-scene{position:relative;max-width:1100px;height:auto;min-height:0;margin:20px auto 0;padding-bottom:12px;background:linear-gradient(105deg,rgba(232,245,235,.75),rgba(246,249,248,.4) 40%,rgba(237,244,232,.68));border:1px solid #e1e7dc;border-radius:24px;overflow:hidden}
 .winding-road-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.road-stop{height:235px;position:relative;z-index:1;display:flex;align-items:flex-start;padding-top:19px}
+.road-stop{min-height:172px;position:relative;z-index:1;display:flex;align-items:flex-start;padding-top:12px}
 .road-stop--left{justify-content:flex-start;padding-left:2.3%}
 .road-stop--right{justify-content:flex-end;padding-right:2.3%}
-.road-pin{position:absolute;z-index:3;left:var(--stop-x);top:95px;transform:translate(-50%,-50%);width:40px;height:40px;background:#fefaf0;border:5px solid #263140;border-radius:50%;font-size:1rem;font-weight:900;color:#263140;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.25)}
+.road-pin{position:absolute;z-index:3;left:var(--stop-x);top:74px;transform:translate(-50%,-50%);width:40px;height:40px;background:#fefaf0;border:5px solid #263140;border-radius:50%;font-size:1rem;font-weight:900;color:#263140;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.25)}
 .road-stop--next .road-pin{border-color:#28754d;color:#28754d}
 .road-stop--future .road-pin{border-color:#315e90;color:#315e90}
 .road-stop--deferred .road-pin{border-color:#707782;color:#707782}
-.road-card{position:relative;width:34%;background:#fff;border:1px solid #d4dce4;border-radius:16px;padding:13px 15px 14px;box-shadow:0 9px 20px rgba(30,40,50,.1);min-height:140px}
-.road-card:after{content:"";position:absolute;top:75px;width:16px;height:3px;background:#d6b64c}
+.road-card{position:relative;width:38%;background:#fff;border:1px solid #d4dce4;border-radius:16px;padding:13px 15px 14px;box-shadow:0 9px 20px rgba(30,40,50,.1);min-height:112px}
+.road-card:after{content:"";position:absolute;top:65px;width:16px;height:3px;background:#d6b64c}
 .road-stop--left .road-card:after{right:-16px}
 .road-stop--right .road-card:after{left:-16px}
 .road-card h3{font-size:1.18rem;line-height:1.25;margin:0 0 7px;color:#172033}
@@ -147,6 +147,41 @@
  .road-ideas-board .road-idea-form input,.road-ideas-board .road-idea-form textarea{font-size:16px}
 }
 </style>
+<style id="roadmap-unified-layout">
+/* The roadmap and voting share one route. No separate collapsible board. */
+.road-journey-toggle{margin:12px 0 22px}
+.road-scene{background:linear-gradient(105deg,#e8f3e9,#f5f8f5 60%,#ecf3e9)}
+.winding-road-svg{height:1910px;bottom:auto}
+.road-stop{min-height:174px}
+.road-card{padding:12px 15px;min-height:0}
+.road-card h3{font-size:1.08rem}
+.road-card p{font-size:.91rem;line-height:1.4}
+.road-pin{top:70px}
+.road-community-stop{position:relative;z-index:2;margin:15px 20px 20px;padding:18px;border-radius:18px;background:#f8fafc;border:1px solid #d9e0e8}
+.road-community-heading{margin:0 0 8px}
+.road-community-heading h2{font-size:1.35rem;margin:0 0 5px}
+.road-community-heading p{margin:0;color:#475467}
+.road-ideas-board{margin:10px 0 0;padding:16px;border:0;box-shadow:none;background:transparent}
+.road-ideas-heading{display:none}
+.road-ideas-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.road-stop .milestone-votes{margin-top:12px;padding-top:10px;border-top:1px solid #e3e8ef}
+.road-stop .milestone-votes .idea-card{padding:9px;background:#f8fafc}
+.road-stop .milestone-votes .idea-card-description{font-size:.84rem}
+.road-stop .milestone-votes .idea-card-title{font-size:.93rem}
+.road-stop .milestone-votes .idea-vote{min-height:65px;flex-basis:64px}
+.road-community-stop .road-idea-form{margin-top:18px}
+@media(max-width:850px){
+ .road-scene{padding:18px 10px 12px 43px}
+ .road-stop{min-height:0;margin-bottom:13px}
+ .road-pin{top:55px}
+ .road-community-stop{margin:12px 0 12px -34px;padding:12px}
+ .road-ideas-list{grid-template-columns:1fr}
+}
+@media(min-width:851px){
+ .road-stop--left{padding-left:2%}
+ .road-stop--right{padding-right:2%}
+}
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -172,29 +207,8 @@
 <span><i class="dot dot--deferred" aria-hidden="true"></i> Under consideration</span>
 </div>
 <p class="road-disclaimer"><strong>During our invitation-only beta:</strong> These plans show direction, not release dates. Priorities may change based on testing and feedback.</p>
-<section class="road-ideas-board" id="ideas" aria-labelledby="ideas-heading">
- <div class="road-ideas-heading"><div><p class="eyebrow">Help shape 3D Amazing</p><h2 id="ideas-heading">Feature ideas &amp; voting</h2>
- <p>See what other makers have suggested, vote for improvements you want, or send us your own idea.</p></div>
- <div class="road-ideas-actions"><a class="road-top-action" href="#idea-form">Suggest an Idea ↓</a></div></div>
- <div class="road-ideas-controls">
- <label>Show<select id="idea-status-filter"><option value="all">All ideas</option><option value="planned">Planned</option><option value="under_review">Under Consideration</option><option value="in_progress">In progress</option><option value="shipped">Shipped</option><option value="not_planned">Not Planned</option></select></label>
- <label>Sort<select id="idea-sort"><option value="popular">Most votes</option><option value="newest">Newest first</option></select></label>
- </div>
- <div class="road-ideas-list" id="idea-list" aria-live="polite"><p class="road-ideas-empty">Loading feature ideas…</p></div>
- <form class="road-idea-form" id="idea-form">
- <h3>Suggest a feature</h3><p>No account needed. Your suggestion is sent privately for review before it can appear here.</p>
- <div class="road-idea-fields">
- <label>Short idea title <input name="title" maxlength="140" minlength="6" required placeholder="Example: Automatically import Etsy sales"></label>
- <label>Email for a reply (optional)<input name="email" type="email" maxlength="320" autocomplete="email" placeholder="you@example.com"></label>
- <label class="idea-detail-label">Tell us how it would help <textarea name="details" maxlength="2400" minlength="12" required placeholder="What problem would this solve for your business?"></textarea></label>
- </div>
- <label aria-hidden="true" style="position:absolute;left:-9999px">Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
- <button type="submit" class="road-top-action" id="idea-send-button">Send My Idea →</button>
- <p class="road-idea-message" id="idea-message" role="status" aria-live="polite"></p>
- <p class="road-idea-note">Your idea is reviewed before publication. We never publicly display your email. Voting helps us prioritize but doesn't guarantee a release.</p>
- </form>
- </section>
-<details class="road-journey-toggle" id="visual-roadmap"><summary>Explore the winding development road ↓</summary>
+
+<div class="road-journey-toggle" id="visual-roadmap">
 <section class="road-scene" aria-label="Winding road of upcoming features">
 <svg class="winding-road-svg" viewBox="0 0 1100 2585" preserveAspectRatio="none" aria-hidden="true" focusable="false">
 <path d="M 545 110 C 560.0 149.2 646.7 266.7 635 345 C 623.3 423.3 476.2 501.7 475 580 C 473.8 658.3 628.0 736.7 628 815 C 628.0 893.3 475.5 971.7 475 1050 C 474.5 1128.3 624.5 1206.7 625 1285 C 625.5 1363.3 479.2 1441.7 478 1520 C 476.8 1598.3 619.3 1676.7 618 1755 C 616.7 1833.3 469.7 1911.7 470 1990 C 470.3 2068.3 609.2 2146.7 620 2225 C 630.8 2303.3 549.2 2420.8 535 2460" fill="none" stroke="#1e293b" stroke-width="116" stroke-linecap="round" stroke-linejoin="round"/>
@@ -300,8 +314,30 @@
 <p>Third-party services for connecting many marketplaces are being deferred while we focus on direct integrations.</p>
 
 </div></div>
+<div class="road-community-stop" id="community-road-stop"><div class="road-community-heading"><h2>Community ideas on the road</h2><p>Vote on approved ideas and suggest what should come next. When a suggestion matches a milestone, its votes appear with that stop.</p></div><section class="road-ideas-board" id="ideas" aria-labelledby="ideas-heading">
+ <div class="road-ideas-heading"><div><p class="eyebrow">Help shape 3D Amazing</p><h2 id="ideas-heading">Feature ideas &amp; voting</h2>
+ <p>See what other makers have suggested, vote for improvements you want, or send us your own idea.</p></div>
+ <div class="road-ideas-actions"><a class="road-top-action" href="#idea-form">Suggest an Idea ↓</a></div></div>
+ <div class="road-ideas-controls">
+ <label>Show<select id="idea-status-filter"><option value="all">All ideas</option><option value="planned">Planned</option><option value="under_review">Under Consideration</option><option value="in_progress">In progress</option><option value="shipped">Shipped</option><option value="not_planned">Not Planned</option></select></label>
+ <label>Sort<select id="idea-sort"><option value="popular">Most votes</option><option value="newest">Newest first</option></select></label>
+ </div>
+ <div class="road-ideas-list" id="idea-list" aria-live="polite"><p class="road-ideas-empty">Loading feature ideas…</p></div>
+ <form class="road-idea-form" id="idea-form">
+ <h3>Suggest a feature</h3><p>No account needed. Your suggestion is sent privately for review before it can appear here.</p>
+ <div class="road-idea-fields">
+ <label>Short idea title <input name="title" maxlength="140" minlength="6" required placeholder="Example: Automatically import Etsy sales"></label>
+ <label>Email for a reply (optional)<input name="email" type="email" maxlength="320" autocomplete="email" placeholder="you@example.com"></label>
+ <label class="idea-detail-label">Tell us how it would help <textarea name="details" maxlength="2400" minlength="12" required placeholder="What problem would this solve for your business?"></textarea></label>
+ </div>
+ <label aria-hidden="true" style="position:absolute;left:-9999px">Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+ <button type="submit" class="road-top-action" id="idea-send-button">Send My Idea →</button>
+ <p class="road-idea-message" id="idea-message" role="status" aria-live="polite"></p>
+ <p class="road-idea-note">Your idea is reviewed before publication. We never publicly display your email. Voting helps us prioritize but doesn't guarantee a release.</p>
+ </form>
+ </section></div>
 </section>
-</details>
+</div>
 <section class="road-end">
 <p class="eyebrow">End of the road—for now</p>
 <h2>Help shape what comes next</h2>
@@ -352,6 +388,19 @@
  const statusFilter=document.getElementById("idea-status-filter");
  const sort=document.getElementById("idea-sort");
  const button=document.getElementById("idea-send-button");
+ const milestones=[
+  ["milestone-1",["etsy"]],["milestone-2",["paypal"]],["milestone-3",["tax","export"]],
+  ["milestone-4",["schedule c"]],["milestone-5",["shopify"]],
+  ["milestone-6",["amazon","tiktok"]],["milestone-7",["reconcil"]],
+  ["milestone-8",["multi-user","team"]],["milestone-9",["clover","hardware"]],
+  ["milestone-10",["unified commerce"]]
+ ];
+ function matchingMilestone(idea){
+  if(idea.source!=="official")return null;
+  const title=String(idea.title||"").toLowerCase();
+  const match=milestones.find(([,terms])=>terms.some(term=>title.includes(term)));
+  return match?document.getElementById(match[0]):null;
+ }
  let ideas=[],visitor="",voted=new Set();
  try{
   visitor=localStorage.getItem("3da-roadmap-visitor-v1")||"";
@@ -381,6 +430,7 @@
    ?new Date(b.submitted_at).getTime()-new Date(a.submitted_at).getTime()
    :Number(b.votes_count)-Number(a.votes_count)||new Date(b.submitted_at).getTime()-new Date(a.submitted_at).getTime());
   list.replaceChildren();
+  document.querySelectorAll(".milestone-votes").forEach(node=>node.remove());
   if(!ordered.length){list.append(el("p","road-ideas-empty","No published ideas in this view yet. Suggest one below."));return;}
   for(const idea of ordered){
    const card=el("article","idea-card");
@@ -424,8 +474,17 @@
    if(idea.source==="official")meta.append(el("span","idea-official","3D Amazing roadmap"));
    details.append(meta,voteMessage);
    card.append(up,details);
-   list.append(card);
+   const stop=matchingMilestone(idea);
+   if(stop){
+    const box=stop.querySelector(".road-card");
+    if(box){
+     let target=box.querySelector(".milestone-votes");
+     if(!target){target=el("div","milestone-votes");box.append(target);}
+     target.append(card);
+    }else list.append(card);
+   }else list.append(card);
   }
+  if(!list.children.length)list.append(el("p","road-ideas-empty","Approved feature votes are shown alongside their roadmap stops."));
  }
  async function load(){
   try{
