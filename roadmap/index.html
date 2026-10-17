@@ -181,6 +181,11 @@
  .road-stop--left{padding-left:2%}
  .road-stop--right{padding-right:2%}
 }
+ .road-stop .milestone-votes{margin-top:10px;padding-top:10px;border-top:1px solid #e3e8ef}
+ .road-stop .milestone-votes .idea-vote{width:105px;min-height:48px;display:flex;flex-direction:row;gap:8px;padding:6px 10px;align-items:center}
+ .road-stop .milestone-votes .idea-vote strong{font-size:1.1rem}
+ .road-stop .milestone-votes .idea-vote span{font-size:.72rem}
+ .road-stop .milestone-votes .idea-vote-message{margin:5px 0 0}
 </style>
 </head>
 <body>
@@ -480,7 +485,8 @@
     if(box){
      let target=box.querySelector(".milestone-votes");
      if(!target){target=el("div","milestone-votes");box.append(target);}
-     target.append(card);
+     // The milestone already displays its own title, description and status.
+     target.append(up,voteMessage);
     }else list.append(card);
    }else list.append(card);
   }
