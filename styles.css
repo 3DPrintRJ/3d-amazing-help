@@ -178,3 +178,7 @@
  .roadmap-page .roadmap-lede{font-size:1.12rem}
  .roadmap-heading h2{font-size:1.52rem}
 }
+
+/* Standalone Help return guidance, shown when browser cannot close the Help tab. */
+.help-return-guidance{margin:0;padding:13px max(18px,calc((100vw - 1120px)/2));border-bottom:1px solid #d9bf68;background:#fff8dd;color:#403513;font-size:14px;font-weight:650;line-height:1.5}
+@media(max-width:600px){.help-return-guidance{padding:12px 16px}}
