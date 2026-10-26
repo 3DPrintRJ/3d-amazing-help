@@ -26,6 +26,7 @@ function run(search,extra={}){
  const messages=[];
  const bar={insertAdjacentElement(_where,notice){messages.push(notice.textContent);}};
  const document={
+  documentElement:{classList:{add(){}}},
   getElementById:()=>null,
   querySelectorAll(selector){
    if(selector==="a.app-return")return [returned];
