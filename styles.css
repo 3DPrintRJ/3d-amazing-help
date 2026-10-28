@@ -189,3 +189,53 @@
 .topbar nav a[href="https://3damazing.com"]{order:3}
 .topbar nav .app-return{order:4}
 @media(max-width:600px){.topbar nav .whats-new-nav{display:inline!important}}
+
+/* 2026-10-28 Help Center density redesign: prioritize search and reading. */
+@media screen {
+ main:has(.help-results-section){padding-bottom:26px}
+ .hero:has(#help-search){padding:25px 0 9px;text-align:left}
+ .hero:has(#help-search) .eyebrow{font-size:.72rem;margin-bottom:3px}
+ .hero:has(#help-search) h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.16;margin:0 0 5px}
+ .hero:has(#help-search) .lede{max-width:none;margin:0;font-size:.9rem;line-height:1.4}
+ .hero:has(#help-search) .search-wrap{max-width:none;margin:15px 0 0}
+ .hero:has(#help-search) .search-wrap input{padding:11px 14px;min-height:44px;font-size:1rem}
+ .hero:has(#help-search) .search-status{margin:5px 0 0;font-size:.82rem;line-height:1.35}
+ .help-results-section{margin:0!important;padding:4px 0 10px!important}
+ .help-results-section h2{font-size:1.15rem!important;margin:3px 0 9px!important}
+ .help-results-section .cards{display:grid;grid-template-columns:1fr;gap:0}
+ .help-results-section .card{display:grid;grid-template-columns:minmax(0,1fr) 18px;align-items:center;column-gap:12px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;min-height:55px;padding:10px 4px;margin:0}
+ .help-results-section .card::after{content:"›";grid-column:2;grid-row:1 / span 2;font-size:1.5rem;font-weight:600;color:var(--muted)}
+ .help-results-section .card h3{grid-column:1;margin:0 0 2px!important;font-size:.99rem!important;line-height:1.25}
+ .help-results-section .card p{grid-column:1;margin:0!important;font-size:.85rem!important;line-height:1.35!important;color:var(--muted)}
+ .help-results-section .card:hover,.help-results-section .card:focus-visible{background:var(--surface-soft);outline-offset:-2px}
+ .help-results-section .card.search-hidden,.help-results-section .card[hidden]{display:none!important}
+ .help-search-active .hero:has(#help-search){padding-bottom:0}
+ .help-search-active .support{display:none}
+ .support{margin:14px 0 0!important;padding:13px 16px!important;border-radius:10px}
+ .support h2{font-size:1.1rem!important;margin:0 0 4px!important}
+ .support p{font-size:.9rem!important;line-height:1.4!important;margin:0}
+ .support .button{min-height:42px;padding:9px 13px}
+ .article{padding-top:22px!important}
+ .article h1{font-size:clamp(1.65rem,4vw,2.2rem)!important;line-height:1.18;margin-bottom:10px!important}
+ .article h2{font-size:1.2rem!important;line-height:1.25;margin:19px 0 8px!important}
+ .article h3{font-size:1.04rem!important;margin:14px 0 6px!important}
+ .article p,.article li{line-height:1.48!important;margin-bottom:9px}
+ .article .article-meta{margin:8px 0 14px}
+ .article table{margin:10px 0 16px}
+ .article th,.article td{padding:8px 10px!important;line-height:1.35}
+}
+@media screen and (max-width:700px){
+ main:has(.help-results-section){padding-left:15px;padding-right:15px}
+ .hero:has(#help-search){padding-top:20px}
+ .hero:has(#help-search) h1{font-size:1.8rem}
+ .hero:has(#help-search) .lede{font-size:.87rem}
+ .help-results-section .card{padding:11px 3px;min-height:58px}
+ .topbar{padding:9px 14px!important;gap:7px!important;min-height:0}
+ .topbar nav{gap:8px!important}
+ .topbar nav a{font-size:.82rem!important}
+ .topbar nav .app-return{padding:8px 9px!important;font-size:.82rem!important}
+ .article{padding-top:16px!important}
+ .article p,.article li{font-size:.92rem!important;line-height:1.47!important}
+ .article h2{margin-top:15px!important}
+ .article table{display:block;overflow-x:auto;max-width:100%}
+}
