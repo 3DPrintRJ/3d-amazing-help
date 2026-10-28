@@ -144,8 +144,9 @@ document.querySelectorAll('.topbar nav').forEach(nav => {
   link.className = 'whats-new-nav';
   link.href = 'whats-new.html';
   link.textContent = 'What’s New';
+  const roadmap = nav.querySelector('.roadmap-nav');
   const appReturn = nav.querySelector('.app-return');
-  nav.insertBefore(link, appReturn || nav.firstChild);
+  nav.insertBefore(link, roadmap || appReturn || nav.firstChild);
 });
 
 // Preserve the originating app route and Practice context while browsing Help.
