@@ -2,6 +2,7 @@ const search = document.getElementById('help-search');
 const cards = [...document.querySelectorAll('#help-cards .card')];
 const noResults = document.getElementById('no-results');
 const searchStatus = document.getElementById('search-status');
+const helpResultsHeading = document.getElementById('help-results-heading');
 
 function applyHelpSearch() {
   if (!search) return;
@@ -19,6 +20,8 @@ function applyHelpSearch() {
   });
 
   if (noResults) noResults.hidden = shown !== 0;
+  if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Browse help topics';
+  document.body.classList.toggle('help-search-active', Boolean(q));
   if (searchStatus) {
     searchStatus.textContent = q
       ? (shown === 0 ? `No help topics match “${search.value.trim()}”.` : `Showing ${shown} help topic${shown === 1 ? '' : 's'} matching “${search.value.trim()}”.`)
@@ -29,6 +32,7 @@ function applyHelpSearch() {
 if (search) {
   search.addEventListener('input', applyHelpSearch);
   search.addEventListener('search', applyHelpSearch);
+  search.addEventListener('keydown', event => { if (event.key === 'Enter') { event.preventDefault(); applyHelpSearch(); } });
   search.addEventListener('keyup', event => {
     if (event.key === 'Escape') {
       search.value = '';
