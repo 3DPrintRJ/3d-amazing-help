@@ -24,6 +24,7 @@
 <h2>Partial payments</h2><p>The remaining balance stays open until fully paid. At zero balance, the Invoice becomes Paid.</p>
 <h2>Payment history</h2><p>History shows date, Invoice or Receipt, Customer, amount, method, reference, status, and available actions. Integrated processor payments also retain the processor name, provider transaction/reference ID, and paid timestamp so the charge can be traced later.</p>
 <h3>Stripe refund history</h3><p>When a Stripe-paid Quick Sale is fully refunded through 3D Amazing, the original payment remains in history and the refund records its amount, time, provider refund ID, and refunded status. The related Receipt is marked Void only after the processor confirms the full refund.</p>
+<p><strong>Payment security:</strong> Changes to recorded payment history must go through 3D Amazing's validated Record Payment, Void Payment, or verified processor flows. Direct database editing is not supported; balances and status are updated together by the application.</p>
 <h2>Correct or cancel a recorded payment</h2>
 <p>Posted Invoice payments are corrected by voiding them rather than silently editing or deleting the original record.</p>
 <ol><li>Find the payment in Payment history or the Customer’s Payments tab.</li><li>Choose <strong>Void Payment</strong>.</li><li>Review the Invoice and amount shown in the confirmation.</li><li>Confirm <strong>Void Payment</strong>.</li></ol>
