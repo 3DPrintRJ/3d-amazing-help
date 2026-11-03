@@ -19,12 +19,14 @@ function applyHelpSearch() {
     if (match) shown++;
   });
 
-  if (noResults) noResults.hidden = shown !== 0;
+  // The live search-status line is the single empty-state message. Showing a
+  // second no-results panel duplicated the message on desktop and mobile.
+  if (noResults) noResults.hidden = true;
   if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Browse help topics';
   document.body.classList.toggle('help-search-active', Boolean(q));
   if (searchStatus) {
     searchStatus.textContent = q
-      ? (shown === 0 ? `No help topics match “${search.value.trim()}”.` : `Showing ${shown} help topic${shown === 1 ? '' : 's'} matching “${search.value.trim()}”.`)
+      ? (shown === 0 ? `No topics found for “${search.value.trim()}”. Try another search or Contact Support.` : `Showing ${shown} help topic${shown === 1 ? '' : 's'} matching “${search.value.trim()}”.`)
       : `Showing all ${cards.length} help topics.`;
   }
 }
