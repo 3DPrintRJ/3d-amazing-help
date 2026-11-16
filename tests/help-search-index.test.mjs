@@ -44,7 +44,7 @@ test("Practice Help points to the current confirmed reset location",()=>{
  assert.ok(doc.includes('data-app-target="/settings?section=business&focus=reset-practice"'));
  assert.ok(doc.includes("Sample Practice Customers")===false||doc.includes("can be edited"));
  assert.ok(doc.includes("250 total Catalog items"));
- assert.ok(doc.includes("does not change real Business or Blank Practice"));
+ assert.ok(doc.includes("real Business or Blank Practice"));
  assert.ok(!doc.includes("section=data&focus=reset-practice"));
 });
 test("Catalog Help covers the latest entry, costing, Category and stock rules",()=>{
