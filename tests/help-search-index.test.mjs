@@ -28,7 +28,7 @@ test("Appearance article matches all eight app themes and documents access rules
  for(const theme of ["Current Appearance","Midnight &amp; Gold","Teal &amp; Copper","Slate &amp; Evergreen","Indigo &amp; Coral","Ocean &amp; Sand","Plum &amp; Orchid","Graphite &amp; Citrus"])assert.ok(doc.includes(theme),theme);
  assert.ok(doc.includes("eligible approved beta/internal"));
  assert.ok(doc.includes("Sample Practice, or Blank Practice"));
- assert.ok(doc.includes("not been certified"));
+ assert.ok(doc.includes("No theme has been certified"));
  assert.ok(doc.includes("Required"));
 });
 test("Global Search Help separates records and secure feature navigation",()=>{
