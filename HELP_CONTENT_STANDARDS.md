@@ -56,7 +56,7 @@ The shared `script.js` enhances the existing plain articles with navigable h2 an
 
 ## Screenshot capture backlog and acceptance
 
-No authenticated, current-build app screenshots are available in this Help repository as of November 17, 2026. **Do not manufacture, recreate or relabel diagrams as actual screenshots.** Capture approved Practice UI before attempting the replacements below:
+A real screenshot of the **public, unsigned-in** login screen was captured November 17, 2026. Authenticated Practice screenshots have not yet been captured. **Do not manufacture, recreate or relabel diagrams as actual screenshots.** Capture approved Practice UI before attempting the replacements below:
 
 | Priority | Guide / location | Required visual | Review requirement |
 |---|---|---|---|
@@ -71,4 +71,14 @@ No authenticated, current-build app screenshots are available in this Help repos
 | 3 | Settings / Appearance | Eight available themes in eligible test account | Do not expose account identifiers |
 | 3 | Search / Settings & Features | Navigation and record results | Role and workspace restrictions visible |
 
-Before publishing each image: record commit SHA, browser/version, device, capture date, theme, exact guide step, source Practice workspace, reviewer and acceptance result. Test links and mobile zoom. The current four Catalog diagrams remain labeled **illustrations, not screenshots** until replaced by verified captures. If authenticated capture isn't available, publish accurate text with no image rather than fictional UI.
+Before publishing each image: record commit SHA, browser/version, device, capture date, theme, exact guide step, source Practice workspace, reviewer and acceptance result. Test links and mobile zoom. The four Catalog diagrams remain labeled **illustrations, not screenshots** until replaced by verified captures. If authenticated capture isn't available, publish accurate text with no image rather than fictional UI.
+
+## Verified sign-in screenshot (2026-11-17)
+
+- File: `media/sign-in-20261117-live-chromium.webp` (520 × 600, cropped from 1280 × 900 browser capture)
+- Source: `https://app.3damazing.com/login` — public sign-in page, no account credentials or real customer data used
+- Captured: 2026-11-17, ~18:51 UTC, Chromium 159 headless on Linux (desktop viewport)
+- Verified live Vercel production deployment: `dpl_5AkNdEyqEXnPGV1EHaKDARMkqW6r`, app Git commit `d34d75b6b985e2299d1260d225062354467d5f1e`
+- UI labels checked against `src/app/login/page.tsx`: **Email**, **Password**, **Sign in**, **Forgot password?**
+- No signed-in or private data is visible. The screenshot is a real browser capture, not a generated illustration.
+- iPhone Safari rendering is not yet accepted. Use this desktop screenshot only as a desktop example.

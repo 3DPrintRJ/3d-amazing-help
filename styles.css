@@ -490,3 +490,8 @@ body:has(.documentation-main){background:#fff;color:#24272d}
  .guide-sidebar{position:relative;top:auto;order:0;grid-column:auto;grid-row:auto;border:1px solid #dce4eb;border-radius:6px;padding:9px 11px;margin:12px 0 8px;max-height:none;overflow:auto}
  .guide-article{order:1;grid-column:auto;grid-row:auto}
 }
+
+/* Keep the real public sign-in screenshot at its native, legible size. */
+.doc-layout .sign-in-figure{max-width:520px}
+.doc-layout .sign-in-figure img{width:100%;height:auto;object-fit:contain}
+@media(max-width:600px){.doc-layout .sign-in-figure{max-width:100%}}
