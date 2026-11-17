@@ -1,5 +1,6 @@
 const search = document.getElementById('help-search');
 const cards = [...document.querySelectorAll('#help-cards .card')];
+const helpTopicGroups = [...document.querySelectorAll('#help-cards [data-topic-group]')];
 const noResults = document.getElementById('no-results');
 const searchStatus = document.getElementById('search-status');
 const helpResultsHeading = document.getElementById('help-results-heading');
@@ -17,6 +18,15 @@ function applyHelpSearch() {
     card.hidden = !match;
     card.setAttribute('aria-hidden', match ? 'false' : 'true');
     if (match) shown++;
+  });
+
+  // Keep the six-topic directory compact: a group disappears while none
+  // of its article links match the current search. The original 23 card
+  // keywords and their individual link behavior remain intact.
+  helpTopicGroups.forEach(group => {
+    const hasVisibleArticles = [...group.querySelectorAll('.card')].some(card => !card.hidden);
+    group.hidden = !hasVisibleArticles;
+    group.setAttribute('aria-hidden', hasVisibleArticles ? 'false' : 'true');
   });
 
   // The live search-status line is the single empty-state message. Showing a
