@@ -32,7 +32,7 @@ function applyHelpSearch() {
   // The live search-status line is the single empty-state message. Showing a
   // second no-results panel duplicated the message on desktop and mobile.
   if (noResults) noResults.hidden = true;
-  if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Browse help topics';
+  if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Explore by topic';
   document.body.classList.toggle('help-search-active', Boolean(q));
   if (searchStatus) {
     searchStatus.textContent = q
