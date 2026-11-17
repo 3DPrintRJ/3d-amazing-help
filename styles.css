@@ -420,3 +420,54 @@ body.help-home,body.help-home html{background:#fff;color:#202327}
  .help-home .help-results-section .help-topic-link{padding:6px 0;min-height:0}
  .help-home .help-topic-heading h3{font-size:1.2rem}
 }
+
+
+/* 2026-11-17 — help-manual article treatment; not a dashboard.
+   Shared across existing plain Help articles. Catalog step guide retains its
+   own authored navigation and context-linked illustrative figures. */
+body:has(.documentation-main){background:#fff;color:#24272d}
+.documentation-main{max-width:1200px;padding-top:12px}
+.doc-layout{display:grid;grid-template-columns:minmax(0, 780px) minmax(178px, 240px);gap:38px;align-items:start}
+.doc-layout .article{max-width:none;margin:0;padding:22px 0 48px!important;min-width:0}
+.doc-layout .article>.back{display:inline-block;margin-bottom:14px;color:#365478;text-decoration:underline;text-underline-offset:3px}
+.doc-layout .article h1{font-size:clamp(1.9rem,3vw,2.4rem)!important;font-weight:600;letter-spacing:-.02em;margin:0 0 16px!important;color:#23262b}
+.doc-layout .article h2{font-size:1.35rem!important;font-weight:650;margin:32px 0 10px!important;scroll-margin-top:20px;color:#30353c}
+.doc-layout .article h3{font-size:1.08rem!important;font-weight:650;color:#343b45}
+.doc-layout .article p,.doc-layout .article li{color:#3e444c;line-height:1.65!important;font-size:1rem!important}
+.doc-layout .article a{color:#365478;text-underline-offset:3px}
+.doc-layout .article .article-meta{font-size:.83rem!important;color:#727883!important}
+.doc-layout .article .help-callout{background:#f6f7f8;border:0;border-left:3px solid #9299a1;border-radius:0;padding:12px 16px;margin:20px 0}
+.doc-layout .article .help-callout.warning{border-left-color:#b54708;background:#fff7e7}
+.doc-layout .article :is(img,video){max-width:100%;height:auto}
+.doc-layout .article figure{max-width:100%;margin:20px 0 25px}
+.doc-toc{position:sticky;top:26px;margin-top:25px;padding-left:24px;border-left:1px solid #e2e5e8;max-height:calc(100vh - 44px);overflow:auto}
+.doc-toc-details>summary{font-size:.8rem;font-weight:700;letter-spacing:.03em;color:#555c67;cursor:pointer}
+.doc-toc nav{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding:0 0 12px}
+.doc-toc nav a{font-size:.86rem;color:#52616e;line-height:1.4;text-decoration:underline;text-decoration-color:#c6cbd0;text-underline-offset:3px}
+.doc-toc nav a:hover{color:#283e58;text-decoration-color:currentColor}
+.doc-related{margin-top:44px;border-top:1px solid #dedfe2;padding-top:15px}
+.doc-layout .doc-related h2{margin:0 0 12px!important;font-size:1.12rem!important}
+.doc-related ul{list-style:none;margin:0;padding:0!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 20px}
+.doc-related li{margin:0!important}
+.doc-related a{text-decoration:underline}
+.practice-context-banner{display:flex;align-items:center;gap:10px;padding:8px max(20px,calc((100vw - 1120px)/2));min-height:0;font-size:.83rem;line-height:1.35;background:#fff8e3;border-bottom:1px solid #e3d4aa;color:#52451e}
+.practice-context-banner strong{font-size:.8rem;letter-spacing:0;text-transform:none}
+.practice-context-banner span{max-width:none}
+.practice-context-banner .practice-help-link{margin-left:auto;color:#614b16;white-space:nowrap;text-decoration:underline;font-weight:650}
+@media(max-width:900px){
+ .doc-layout{display:flex;flex-direction:column;gap:0}
+ .doc-toc{position:static;order:-1;margin:0 0 12px;padding:0;border:0;width:100%;max-height:none;overflow:visible}
+ .doc-toc-details{border:1px solid #e0e3e6;border-radius:6px;padding:10px 13px;background:#fbfbfb}
+ .doc-toc nav{max-height:230px;overflow:auto}
+ .doc-layout .article{padding-top:6px!important}
+ .documentation-main{padding-left:20px;padding-right:20px}
+}
+@media(max-width:600px){
+ .practice-context-banner{padding:7px 14px;display:flex;flex-direction:row;flex-wrap:wrap;gap:2px 8px}
+ .practice-context-banner strong{white-space:normal}
+ .practice-context-banner span{flex:1 1 100%;font-size:.79rem}
+ .practice-context-banner .practice-help-link{margin-left:0;font-size:.79rem}
+ .doc-layout .article h1{font-size:1.9rem!important}
+ .doc-layout .article h2{font-size:1.18rem!important}
+ .doc-related ul{grid-template-columns:1fr}
+}
