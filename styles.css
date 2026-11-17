@@ -547,3 +547,48 @@ body:has(.documentation-main) .help-visual{max-width:420px!important}
  .guide-sidebar{padding:9px 11px}
  .guide-figure{max-width:100%!important}
 }
+
+
+/* 2026-11-17 narrated Catalog Help review: one editorial visual system.
+   The Catalog tutorial previously used dashboard buttons and a pale page
+   distinct from the rest of Help, and its contents were too far from text. */
+html:has(.guide-main), body:has(.guide-main){background:#fff!important}
+.guide-main{max-width:850px!important;padding:0 20px 44px!important}
+.guide-main .guide-layout{grid-template-columns:minmax(0,480px) minmax(155px,190px)!important;gap:18px!important;justify-content:start!important}
+.guide-main .guide-article{max-width:480px!important}
+.guide-main .guide-sidebar{padding-left:13px!important;margin-top:9px!important}
+.guide-main .guide-sidebar a{font-size:.84rem;line-height:1.4}
+.guide-main .guide-breadcrumbs{color:#546473}
+.guide-main .guide-breadcrumbs a,.guide-main .guide-plain-links a{color:#365478;text-underline-offset:3px}
+.guide-main .guide-plain-links{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0 14px;font-size:.94rem;line-height:1.4}
+.guide-main .guide-plain-links a{text-decoration:underline;font-weight:500;background:none;border:0;border-radius:0;padding:0}
+.guide-main .guide-image-note{color:#596776;font-size:.85rem!important;line-height:1.45}
+.guide-main .guide-section h2{margin:24px 0 9px!important}
+.guide-main .guide-detail-figure{max-width:450px!important;margin:12px 0 18px!important;padding:0!important;border:none!important;background:#fff!important}
+.guide-main .guide-detail-figure>a{display:block;background:#fff;border:0!important;max-width:100%}
+.guide-main .guide-detail-figure img{display:block;max-width:100%;height:auto;width:auto;margin:0}
+.guide-main .guide-detail-figure figcaption{font-size:.84rem;line-height:1.4;color:#586577;background:none;border:0;padding:5px 0 0}
+.guide-main .guide-detail-figure figcaption span{font-style:italic;color:#788491}
+.guide-main .guide-next{margin-top:30px;border-top:1px solid #e1e5ea}
+.guide-main .guide-related{display:flex;gap:8px 22px;flex-wrap:wrap}
+.guide-main .guide-related a{display:inline-block;background:transparent;border:0;box-shadow:none;padding:0;border-radius:0;text-decoration:underline;text-underline-offset:3px}
+.guide-main .guide-related a strong{font-size:.94rem;font-weight:500;color:#365478}
+.guide-main .guide-related a:hover,.guide-main .guide-related a:focus-visible{text-decoration-thickness:2px;background:none}
+@media(min-width:751px){.guide-main .guide-sidebar{position:sticky;top:14px}}
+@media(max-width:750px){
+ .guide-main{padding:0 17px 32px!important}
+ .guide-main .guide-layout{display:flex!important;flex-direction:column!important;gap:0!important}
+ .guide-main .guide-article{max-width:100%!important}
+ .guide-main .guide-sidebar{width:100%;max-width:100%;margin:12px 0!important;padding:9px 11px!important;position:static}
+ .guide-main .guide-detail-figure{max-width:100%!important}
+ .guide-main .guide-detail-figure img{max-width:100%;height:auto}
+}
+/* Unify Help header across overview and individual guides. */
+body .topbar{background:#fff;border-bottom:1px solid #e5e9ee;color:#232c38}
+body .topbar .brand{color:#232c38}
+body .topbar .brand span{color:#657282}
+body .topbar nav a{color:#39495a}
+body .topbar nav a:hover{color:#172033;text-decoration:underline}
+body .topbar nav a.app-return{background:#fff;color:#243e5c;border:1px solid #aeb7c3}
+body .topbar nav a.app-return:hover{background:#f3f5f8;color:#172033}
+body .topbar nav a.whats-new-nav.active, body .topbar nav .roadmap-nav.active{color:#243e5c;text-decoration:underline}
