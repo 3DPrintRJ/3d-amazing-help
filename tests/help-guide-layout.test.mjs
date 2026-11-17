@@ -31,7 +31,7 @@ test("illustrated Catalog tutorial follows real required-first workflow",()=>{
  for(const phrase of ["What are you adding?","3D Printing","I print / make it","3D Printed Item","Item name","Selling price","Manual price","Cost + markup","Filament / Material","Choose or create category","No category","Save Item","Receive","Use","Adjust","Buy &amp; Resell","Assembly / Gift Set"])assert.ok(guide.includes(phrase),phrase);
  assert.ok(guide.includes("not screenshots of a signed-in session"));
  assert.ok(guide.includes("fictional training values"));
- assert.ok(guide.includes("separate verified iPhone screenshots"));
+ assert.ok(guide.includes("Separate verified iPhone screenshots"));
  assert.ok(guide.includes("without changing your real Business"));
  assert.ok(!guide.includes("Required fields have a copper outline"));
 });
