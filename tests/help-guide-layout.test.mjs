@@ -50,3 +50,10 @@ test("shared Help navigation and responsive behavior are preserved",()=>{
  assert.ok(css.includes("@media(max-width:750px)"));
  assert.ok(css.includes(".help-topic-group[hidden]{display:none!important}"));
 });
+
+test("Catalog detail visuals use natural size and remain responsive",()=>{
+ assert.ok(css.includes(".guide-main .guide-detail-figure img{width:auto;max-width:100%;height:auto;object-fit:contain}"));
+ assert.ok(css.includes("grid-template-columns:minmax(0,570px) minmax(155px,190px)"));
+ assert.ok(css.includes(".guide-main .guide-detail-figure{max-width:100%!important}"));
+ assert.ok(guide.includes("styles.css?v=20261117-adaptive-details"));
+});
