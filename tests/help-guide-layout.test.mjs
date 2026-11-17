@@ -30,7 +30,7 @@ test("sign-in help uses a real verified screenshot of public controls",()=>{
 test("Catalog guide retains five actions and four accurately labeled illustrations",()=>{
  for(const id of ["before-start","step-one","step-two","step-three","step-four","step-five","other-workflows","mobile"])assert.ok(guide.includes('id="'+id+'"'),id);
  for(const phrase of ["What are you adding?","3D Printing","I print / make it","3D Printed Item","Required","Optional","Manual price","Selling price","Cost + markup","Filament / Material","Choose or create category","No category","Save Item","Receive","Use","Adjust","Buy &amp; Resell","Assembly / Gift Set"])assert.ok(guide.includes(phrase),phrase);
- const matches=[...guide.matchAll(/<img src="(media\\/[^"]+\\.svg)" alt="([^"]+)" loading="lazy"/g)];
+ const matches=[...guide.matchAll(/<img src="([^"]+)" alt="([^"]+)" loading="lazy"/g)].filter(x=>x[1].endsWith(".svg"));
  assert.equal(matches.length,8);
  for(const x of matches){assert.ok(exists(x[1]));assert.ok(x[2].length>30);assert.ok(guide.includes('href="'+x[1]+'"'));}
  assert.ok(guide.includes("cropped interface illustrations, not real app screenshots"));
