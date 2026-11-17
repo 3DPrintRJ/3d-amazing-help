@@ -4,7 +4,7 @@ import {fileURLToPath} from "node:url";
 import test from "node:test";
 const read=name=>readFileSync(new URL("../"+name,import.meta.url),"utf8");
 const index=read("index.html");
-const cards=[...index.matchAll(/<a class="card" href="([^"]+)" data-search="([^"]+)">([\s\S]*?)<\/a>/g)]
+const cards=[...index.matchAll(/<a class="card(?: [^"]*)?" href="([^"]+)" data-search="([^"]+)">([\s\S]*?)<\/a>/g)]
  .map(([,href,meta,html])=>({href,haystack:(meta+" "+html.replace(/<[^>]+>/g," ")).toLowerCase()}));
 const matches=q=>{const words=q.trim().toLowerCase().split(/\s+/).filter(Boolean);return cards.filter(c=>words.every(w=>c.haystack.includes(w))).map(c=>c.href);};
 test("all Help card links resolve to actual pages",()=>{
