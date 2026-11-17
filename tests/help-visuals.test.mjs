@@ -21,16 +21,15 @@ const covered = {
   "products.html":"guide-inventory-workflow.svg"
 };
 
-test("major authenticated Help workflows have clearly labeled, linked visual guides", () => {
+test("authenticated Help pages do not substitute invented graphics for application screenshots", () => {
   for (const [page,image] of Object.entries(covered)) {
     const html=read(page);
-    const asset="media/"+image;
-    assert.ok(html.includes('src="'+asset+'"'),page+" missing "+image);
-    assert.ok(html.includes('href="'+asset+'"'),page+" missing enlarge link");
-    assert.ok(exists(asset),"Missing asset: "+asset);
-    assert.ok(html.includes("not an application screenshot"),page+" must distinguish diagrams from screenshots");
+    assert.ok(!html.includes('src="media/'+image+'"'),page+" still renders schematic placeholder");
+    assert.ok(exists("media/"+image),"Historical asset is retained for source inspection");
   }
-  assert.ok(read("settings.html").includes('src="media/guide-backup-workflow.svg"'));
+  assert.ok(!read("settings.html").includes('src="media/guide-backup-workflow.svg"'));
+  assert.ok(read("password-help.html").includes('src="media/sign-in-20261117-live-chromium.webp"'));
+  assert.ok(read("password-help.html").includes('src="media/forgot-password-20261117-chromium.webp"'));
 });
 
 test("each SVG workflow has accessible labels and safe standalone markup", () => {
@@ -97,4 +96,12 @@ test("instructions use current source-verified key controls",()=>{
   assert.ok(events.includes("<strong>Add Expense</strong>")||events.includes("Event expenses"));
   assert.ok(reports.includes("<strong>Run Report</strong>"));
   assert.ok(payments.includes("<strong>Record Payment</strong>"));
+});
+
+test("Vellum-inspired text/TOC columns are closer and media never stretches",()=>{
+ const css=read("styles.css");
+ assert.ok(css.includes("grid-template-columns:minmax(0,580px) minmax(165px,195px)"));
+ assert.ok(css.includes("gap:20px!important"));
+ assert.ok(css.includes(".guide-figure{max-width:420px!important}"));
+ assert.ok(css.includes("@media(max-width:900px)"));
 });

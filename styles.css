@@ -516,3 +516,34 @@ body:has(.documentation-main){background:#fff;color:#24272d}
  .doc-layout .help-visual figcaption{font-size:.82rem}
  .help-theme-preview{padding:9px 0}
 }
+
+
+/* Nov 17 narrated review: match Vellum's editorial proportions, not a dashboard.
+   Keep the contents near the article, and never stretch instructional media. */
+body:has(.documentation-main) .documentation-main{max-width:950px!important;margin-left:auto;margin-right:auto}
+body:has(.documentation-main) .doc-layout{display:grid;grid-template-columns:minmax(0,580px) minmax(165px,195px);gap:20px;justify-content:start;align-items:start}
+body:has(.documentation-main) .doc-layout .article{max-width:580px!important}
+body:has(.documentation-main) .doc-toc{padding-left:16px;margin-top:23px}
+body:has(.documentation-main) .doc-toc nav{gap:7px}
+body:has(.documentation-main) .doc-layout .article p,
+body:has(.documentation-main) .doc-layout .article li{line-height:1.55!important}
+body:has(.documentation-main) .doc-layout .article h2{margin-top:24px!important}
+body:has(.documentation-main) .doc-figure:not(.sign-in-figure){max-width:420px!important}
+body:has(.documentation-main) .help-visual{max-width:420px!important}
+.guide-main{max-width:950px!important;margin-left:auto;margin-right:auto}
+.guide-layout{grid-template-columns:minmax(0,580px) minmax(165px,195px)!important;gap:20px!important;justify-content:start}
+.guide-sidebar{padding-left:16px}
+.guide-article{max-width:580px!important}
+.guide-figure{max-width:420px!important}
+.guide-figure img{width:100%;height:auto}
+@media(max-width:900px){
+ body:has(.documentation-main) .doc-layout{display:flex!important;flex-direction:column;gap:0}
+ body:has(.documentation-main) .doc-layout .article{max-width:100%!important}
+ body:has(.documentation-main) .doc-toc{padding:0;margin:0 0 12px;width:100%}
+}
+@media(max-width:750px){
+ .guide-layout{display:flex!important;flex-direction:column;gap:0!important}
+ .guide-article{max-width:100%!important}
+ .guide-sidebar{padding:9px 11px}
+ .guide-figure{max-width:100%!important}
+}
