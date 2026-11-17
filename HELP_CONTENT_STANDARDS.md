@@ -82,3 +82,36 @@ Before publishing each image: record commit SHA, browser/version, device, captur
 - UI labels checked against `src/app/login/page.tsx`: **Email**, **Password**, **Sign in**, **Forgot password?**
 - No signed-in or private data is visible. The screenshot is a real browser capture, not a generated illustration.
 - iPhone Safari rendering is not yet accepted. Use this desktop screenshot only as a desktop example.
+
+
+## November 17 follow-up: screenshots and workflow visuals
+
+The Help Center provides **two real, public, unsigned-in app screenshots**:
+- `media/sign-in-20261117-live-chromium.webp` — Sign in screen.
+- `media/forgot-password-20261117-chromium.webp` — Password recovery screen (420×574 cropped from a Chromium desktop capture), captured from `https://app.3damazing.com/forgot-password` on 2026-11-17.
+
+Both were checked against the live production deployment `dpl_5AkNdEyqEXnPGV1EHaKDARMkqW6r` at app commit `d34d75b6b985e2299d1260d225062354467d5f1e`. No sign-in or recovery request was submitted; no emails, credentials or business records were entered.
+
+**All other added graphics are clearly labeled workflow diagrams, not app screenshots.** They describe the verified navigation and action sequence without pretending to reproduce authenticated screens:
+
+- Customers: `guide-customer-workflow.svg`
+- New Sale and Dashboard: `guide-sale-chooser.svg`
+- Quick Sale: `guide-quick-sale-workflow.svg`
+- Create Invoice: `guide-invoice-workflow.svg`
+- Quotes: `guide-quote-workflow.svg`
+- Payments: `guide-payment-workflow.svg`
+- Reports: `guide-report-workflow.svg`
+- Events: `guide-event-workflow.svg`
+- Practice: `guide-practice-workflow.svg`
+- Search: `guide-search-workflow.svg`
+- Business Settings: `guide-settings-workflow.svg`
+- Data Tools: `guide-backup-workflow.svg`
+- Catalog stock: `guide-inventory-workflow.svg`
+
+Appearance also includes eight HTML palette previews using the literal colors from `src/lib/appTheme.ts`, not a screenshot of the theme picker.
+
+### Remaining authenticated screenshot coverage
+
+Current, authentic screenshots of real app interfaces **must** be captured from a controlled Practice account before they replace any diagrams: Catalog chooser and required fields, Catalog inventory entry, Customers add/edit, New Sale chooser, Invoice draft, Quick Sale checkout, Quote conversion, Payments, Reports, Events, Search, Business Settings, Appearance, and Practice switching. Never use real Business data or create test sales in Business to obtain these captures. Verify each screenshot against the app build SHA and relevant device, crop appropriately, and keep clear alt text, captions and full-size links. iPhone Safari visual acceptance remains unverified until tested on an actual phone.
+
+Support, FAQ, and Troubleshooting are reference pages; they should remain concise text-and-links unless a specific authentic screenshot makes a particular instruction clearer. Avoid adding decorative visuals.
