@@ -40,3 +40,35 @@ The Catalog guide contains four **original, code-informed SVG diagrams**:
 - Run `node --check script.js` and `node --test tests/*.test.mjs`, then verify GitHub Pages deployment. Manual browser/device visual review remains a separate milestone.
 
 Vellum's public Help site provided structural inspiration: browse topics by task, concise steps, adjacent screenshots and links to related help. No Vellum assets or layouts are copied verbatim.
+
+## Editorial structure for every Help article (November 17 revision)
+
+The Help overview is a compact text-first directory. Individual articles use a readable, restrained long-form layout modeled on the useful principles of Vellum documentation (not its protected artwork):
+
+1. Title and a short statement of what the task achieves.
+2. A navigable **On this page** index (right side on desktop; collapsible on small screens).
+3. Task instructions first, in the order the user will perform them. Move implementation history and troubleshooting after the primary task, rather than stacking release notes ahead of instructions.
+4. Real screenshots **immediately after** the relevant action, cropped closely and captioned. Do not use a decorative screenshot at the top of an unrelated article.
+5. Short accessibility-safe tips or cautions only when needed; avoid large banners and giant cards.
+6. Related Help links at the end. Keep all previously published direct URLs, headings/anchors where externally linked, and Help return/Practice context behavior.
+
+The shared `script.js` enhances the existing plain articles with navigable h2 anchors and related articles. The author-written `catalog-add-item.html` retains its five-step navigation. Do not treat automatic navigation as an editorial review of outdated content. Recheck instructions against the current application for every feature release.
+
+## Screenshot capture backlog and acceptance
+
+No authenticated, current-build app screenshots are available in this Help repository as of November 17, 2026. **Do not manufacture, recreate or relabel diagrams as actual screenshots.** Capture approved Practice UI before attempting the replacements below:
+
+| Priority | Guide / location | Required visual | Review requirement |
+|---|---|---|---|
+| 1 | Add a Catalog Item / choice step | Actual Add Item chooser | Desktop + iPhone Safari, no personal data |
+| 1 | Add a Catalog Item / Basic information | Required fields with Manual price | Desktop + iPhone Safari, verified current labels |
+| 1 | Catalog & Pricing / costing | Actual self-made vs purchased product costing | Correct profile and purchase-cost basis |
+| 1 | Add a Catalog Item / Save | Actual Save Item + distinct inventory operation | Do not imply saving receives stock |
+| 2 | Quick Sale / transaction and receipt | Controlled Practice Quick Sale and synthetic receipt | No real sale or processor IDs |
+| 2 | Create Invoice / draft and finalize | Practice Invoice flow | Draft/finalized states shown correctly |
+| 2 | Payments / partial payment | Practice sample payment history | No real payment/customer data |
+| 3 | Practice / workspace switching | Workspace selector and reset controls | Verify Practice isolation; no live reset |
+| 3 | Settings / Appearance | Eight available themes in eligible test account | Do not expose account identifiers |
+| 3 | Search / Settings & Features | Navigation and record results | Role and workspace restrictions visible |
+
+Before publishing each image: record commit SHA, browser/version, device, capture date, theme, exact guide step, source Practice workspace, reviewer and acceptance result. Test links and mobile zoom. The current four Catalog diagrams remain labeled **illustrations, not screenshots** until replaced by verified captures. If authenticated capture isn't available, publish accurate text with no image rather than fictional UI.
