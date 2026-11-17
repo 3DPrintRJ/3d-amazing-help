@@ -32,7 +32,7 @@ test("illustrated Catalog tutorial follows real required-first workflow",()=>{
  assert.ok(guide.includes("not screenshots of a signed-in session"));
  assert.ok(guide.includes("fictional training values"));
  assert.ok(guide.includes("separate verified iPhone screenshots"));
- assert.ok(guide.includes("no real sale"));
+ assert.ok(guide.includes("without changing your real Business"));
  assert.ok(!guide.includes("Required fields have a copper outline"));
 });
 test("all four illustrations have full-size links, descriptive alt and valid SVG text",()=>{
