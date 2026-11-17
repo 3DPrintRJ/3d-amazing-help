@@ -1,5 +1,6 @@
 const search = document.getElementById('help-search');
 const cards = [...document.querySelectorAll('#help-cards .card')];
+const helpTopicGroups = [...document.querySelectorAll('#help-cards [data-topic-group]')];
 const noResults = document.getElementById('no-results');
 const searchStatus = document.getElementById('search-status');
 const helpResultsHeading = document.getElementById('help-results-heading');
@@ -19,10 +20,19 @@ function applyHelpSearch() {
     if (match) shown++;
   });
 
+  // Keep the six-topic directory compact: a group disappears while none
+  // of its article links match the current search. The original 23 card
+  // keywords and their individual link behavior remain intact.
+  helpTopicGroups.forEach(group => {
+    const hasVisibleArticles = [...group.querySelectorAll('.card')].some(card => !card.hidden);
+    group.hidden = !hasVisibleArticles;
+    group.setAttribute('aria-hidden', hasVisibleArticles ? 'false' : 'true');
+  });
+
   // The live search-status line is the single empty-state message. Showing a
   // second no-results panel duplicated the message on desktop and mobile.
   if (noResults) noResults.hidden = true;
-  if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Browse help topics';
+  if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Explore by topic';
   document.body.classList.toggle('help-search-active', Boolean(q));
   if (searchStatus) {
     searchStatus.textContent = q
