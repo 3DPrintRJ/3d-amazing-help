@@ -592,3 +592,20 @@ body .topbar nav a:hover{color:#172033;text-decoration:underline}
 body .topbar nav a.app-return{background:#fff;color:#243e5c;border:1px solid #aeb7c3}
 body .topbar nav a.app-return:hover{background:#f3f5f8;color:#172033}
 body .topbar nav a.whats-new-nav.active, body .topbar nav .roadmap-nav.active{color:#243e5c;text-decoration:underline}
+
+/* Adapt Catalog close-up illustrations to their useful intrinsic size.
+   The prior 480px content rail forced wider controls to scale down needlessly.
+   Preserve the adjacent TOC, and keep all figures within a readable viewport. */
+@media(min-width:751px){
+ .guide-main{max-width:955px!important}
+ .guide-main .guide-layout{grid-template-columns:minmax(0,570px) minmax(155px,190px)!important;gap:18px!important}
+ .guide-main .guide-article{max-width:570px!important}
+}
+.guide-main .guide-detail-figure{max-width:100%!important}
+.guide-main .guide-detail-figure>a{display:inline-block;max-width:100%}
+.guide-main .guide-detail-figure img{width:auto;max-width:100%;height:auto;object-fit:contain}
+@media(max-width:750px){
+ .guide-main .guide-article{max-width:100%!important}
+ .guide-main .guide-detail-figure{max-width:100%!important}
+ .guide-main .guide-detail-figure>a{display:block;max-width:100%}
+}
