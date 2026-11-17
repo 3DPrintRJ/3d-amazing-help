@@ -471,3 +471,22 @@ body:has(.documentation-main){background:#fff;color:#24272d}
  .doc-layout .article h2{font-size:1.18rem!important}
  .doc-related ul{grid-template-columns:1fr}
 }
+
+
+/* Vellum-style long-form guides: article on the left, contents on the right. */
+.guide-layout{grid-template-columns:minmax(0,780px) minmax(180px,225px);gap:40px}
+.guide-article{grid-column:1;grid-row:1}
+.guide-sidebar{grid-column:2;grid-row:1;border-right:0;border-left:1px solid #e2e5e8;padding:18px 0 16px 20px;margin-top:12px;max-height:calc(100vh - 32px);overflow:auto}
+.guide-sidebar a{color:#52616e;text-decoration:underline;text-decoration-color:#c6cbd0;text-underline-offset:3px}
+.guide-sidebar a:hover{text-decoration:underline}
+.doc-layout .doc-figure{margin:22px 0 26px;background:#fff;max-width:660px}
+.doc-figure>a{display:block;background:#fafafa;border:1px solid #e4e6e8}
+.doc-figure>a:focus-visible{outline:3px solid #365478;outline-offset:3px}
+.doc-figure img{display:block;width:100%;height:auto}
+.doc-figure figcaption{padding:8px 0;color:#59616b;font-size:.88rem;line-height:1.5}
+.doc-figure figcaption a{white-space:nowrap}
+@media(max-width:750px){
+ .guide-layout{display:flex;flex-direction:column}
+ .guide-sidebar{position:relative;top:auto;order:0;grid-column:auto;grid-row:auto;border:1px solid #dce4eb;border-radius:6px;padding:9px 11px;margin:12px 0 8px;max-height:none;overflow:auto}
+ .guide-article{order:1;grid-column:auto;grid-row:auto}
+}
