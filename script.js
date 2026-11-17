@@ -127,7 +127,7 @@ if (practiceHelp) {
   const banner = document.createElement('div');
   banner.className = 'practice-context-banner';
   banner.setAttribute('role', 'status');
-  banner.innerHTML = '<strong>Practice</strong><span>You opened Help from Practice. Practice records stay separate from your real business data, and actions described here affect the Practice sandbox while Practice is active.</span><button type="button" class="practice-reset-link" data-app-target="/settings?section=data&focus=reset-practice">Reset Practice →</button>';
+  banner.innerHTML = '<strong>Practice workspace</strong><span>Help is open from Practice. Your real Business records remain separate.</span><a class="practice-help-link" href="practice-workspace.html">Practice guide</a>';
 
   const topbar = document.querySelector('.topbar');
   if (topbar) topbar.insertAdjacentElement('afterend', banner);
@@ -182,3 +182,122 @@ document.querySelectorAll('a[href]').forEach(link => {
     link.href = target.toString();
   } catch {}
 });
+
+
+// Consistent, readable article navigation, inspired by a traditional help manual.
+// The page's original article text stays authoritative: do not invent screenshots,
+// infer controls, or rewrite saved customer/business records here.
+(function enhanceHelpArticles() {
+  const article = document.querySelector('main > article.article');
+  const main = document.querySelector('main');
+  // The illustrated Catalog tutorial has its own authored step-by-step navigation.
+  if (!article || !main || main.classList.contains('guide-main')) return;
+  if (article.closest('.doc-layout')) return;
+
+  main.classList.add('documentation-main');
+  const layout = document.createElement('div');
+  layout.className = 'doc-layout';
+  const toc = document.createElement('aside');
+  toc.className = 'doc-toc';
+  const tocDetails = document.createElement('details');
+  tocDetails.className = 'doc-toc-details';
+  const tocSummary = document.createElement('summary');
+  tocSummary.textContent = 'On this page';
+  const tocNav = document.createElement('nav');
+  tocNav.setAttribute('aria-label', 'Article contents');
+  const headings = [...article.querySelectorAll('h2')].filter(h => !h.closest('.guide-next'));
+  const taken = new Set([...article.querySelectorAll('[id]')].map(el => el.id));
+  headings.forEach((heading, index) => {
+    if (!heading.id) {
+      const base = heading.textContent.trim().toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 55) || 'section';
+      let id = base;
+      let n = 2;
+      while (taken.has(id)) id = base + '-' + n++;
+      heading.id = id;
+      taken.add(id);
+    }
+    const link = document.createElement('a');
+    link.href = '#' + encodeURIComponent(heading.id);
+    link.textContent = heading.textContent.trim();
+    tocNav.append(link);
+  });
+  if (headings.length >= 2) {
+    tocDetails.append(tocSummary, tocNav);
+    toc.append(tocDetails);
+  }
+
+  const related = {
+    'getting-started.html': ['catalog-add-item.html', 'practice-workspace.html', 'create-sale.html'],
+    'products.html': ['catalog-add-item.html', 'create-sale.html', 'reports.html'],
+    'practice-workspace.html': ['getting-started.html', 'catalog-add-item.html', 'appearance.html'],
+    'quick-sale.html': ['create-sale.html', 'payments.html', 'show-mode.html'],
+    'create-invoice.html': ['invoices.html', 'quotes.html', 'payments.html'],
+    'invoices.html': ['create-invoice.html', 'payments.html', 'reports.html'],
+    'settings.html': ['appearance.html', 'practice-workspace.html', 'search.html'],
+    'search.html': ['getting-started.html', 'settings.html', 'products.html'],
+    'payments.html': ['invoices.html', 'quick-sale.html', 'reports.html'],
+    'quotes.html': ['create-sale.html', 'create-invoice.html', 'invoices.html'],
+    'customers.html': ['create-sale.html', 'products.html', 'reports.html'],
+    'dashboard.html': ['getting-started.html', 'search.html', 'create-sale.html'],
+    'events.html': ['quick-sale.html', 'reports.html', 'show-mode.html'],
+    'show-mode.html': ['quick-sale.html', 'events.html', 'troubleshooting.html'],
+    'reports.html': ['invoices.html', 'payments.html', 'events.html'],
+    'appearance.html': ['settings.html', 'practice-workspace.html', 'getting-started.html'],
+    'password-help.html': ['troubleshooting.html', 'getting-started.html', 'support.html'],
+    'faq.html': ['troubleshooting.html', 'support.html', 'getting-started.html'],
+    'troubleshooting.html': ['password-help.html', 'support.html', 'faq.html'],
+    'support.html': ['faq.html', 'troubleshooting.html', 'getting-started.html'],
+    'create-sale.html': ['quick-sale.html', 'create-invoice.html', 'quotes.html']
+  };
+  const titles = {
+    'catalog-add-item.html':'Add a Catalog Item', 'practice-workspace.html':'Practice Workspace',
+    'create-sale.html':'Make a Sale','getting-started.html':'Getting Started',
+    'products.html':'Catalog & Pricing','reports.html':'Reports',
+    'quick-sale.html':'Quick Sale','payments.html':'Payments','show-mode.html':'Offline / Show Mode',
+    'create-invoice.html':'Create Invoice','invoices.html':'Sales History',
+    'quotes.html':'Quotes','settings.html':'Business Settings','search.html':'Global Search',
+    'appearance.html':'Appearance & Themes','customers.html':'Customers','dashboard.html':'Dashboard',
+    'events.html':'Events','troubleshooting.html':'Troubleshooting',
+    'password-help.html':'Password & Account Recovery','support.html':'Support','faq.html':'FAQ'
+  };
+  const current = window.location.pathname.split('/').pop();
+  const links = related[current];
+  if (links && !article.querySelector('.doc-related')) {
+    const aside = document.createElement('aside');
+    aside.className = 'doc-related';
+    aside.setAttribute('aria-label', 'Related help');
+    const heading = document.createElement('h2');
+    heading.textContent = 'Related help';
+    const list = document.createElement('ul');
+    for (const target of links) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = target;
+      a.textContent = titles[target] || target.replace(/\.html$/, '');
+      li.append(a);
+      list.append(li);
+    }
+    aside.append(heading,list);
+    article.append(aside);
+  }
+  main.insertBefore(layout, article);
+  layout.append(article);
+  if (headings.length >= 2) layout.append(toc);
+  const mq = window.matchMedia?.('(min-width: 901px)');
+  const setToc = () => { if (headings.length >= 2) tocDetails.open = Boolean(mq?.matches); };
+  setToc();
+  if (mq?.addEventListener) mq.addEventListener('change', setToc);
+  else mq?.addListener?.(setToc);
+
+  // Newly generated related links need to retain the current Practice / app
+  // return context, just as the authored links do.
+  const parameters = new URLSearchParams(window.location.search);
+  document.querySelectorAll('.doc-related a[href]').forEach(link => {
+    const dest = new URL(link.getAttribute('href'), window.location.href);
+    if (parameters.get('workspace') === 'practice') dest.searchParams.set('workspace','practice');
+    if (parameters.has('help_mode')) dest.searchParams.set('help_mode', parameters.get('help_mode'));
+    if (parameters.has('app_return')) dest.searchParams.set('app_return', parameters.get('app_return'));
+    link.href = dest.toString();
+  });
+})();
