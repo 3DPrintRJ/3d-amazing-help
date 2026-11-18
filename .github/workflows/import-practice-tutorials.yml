@@ -1,0 +1,49 @@
+name: Import Practice tutorial assets (temporary)
+on:
+  pull_request:
+    types: [opened, synchronize]
+permissions:
+  contents: write
+jobs:
+  import-media:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'help/practice-video-handbook-20261117' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tutorial branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - name: Download vetted Practice media and commit to branch
+        shell: bash
+        env:
+          GITHUB_HEAD_REF: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+          BASE="https://sb-3mm5of88vq8a.vercel.run/finalmedia"
+          mkdir -p media/tutorials/screenshots
+          videos=("customers-add-customer" "inventory-receive-stock" "inventory-low-stock" "quick-sale-create" "invoices-draft-and-finalize" "quotes-convert-to-invoice" "payments-record-payment" "reports-generate-export" "events-create-and-manage" "business-settings-workspace-options")
+          for name in "${videos[@]}"; do
+            for ext in mp4 vtt webp; do
+              curl --fail --location --retry 3 --retry-delay 1 --silent --show-error "${BASE}/${name}.${ext}" --output "media/tutorials/${name}.${ext}"
+            done
+          done
+          screenshots=("customers-add-form" "customers-saved-profile" "customers-find" "inventory-receive" "inventory-history" "inventory-threshold" "inventory-low-stock-detail" "quick-sale-choose-product" "quick-sale-payment-methods" "quick-sale-paid-receipt" "invoices-customer-choices" "invoices-draft-form" "invoices-finalize-confirmation" "quotes-customer-choices" "quotes-conversion-warning" "quotes-converted-invoice" "payments-cash-entry" "payments-methods" "payments-history" "reports-date-range" "reports-preview" "reports-export-dialog" "events-new-event" "events-edit" "events-updated" "business-settings-workspaces" "business-settings-workspace-chooser" "business-settings-practice-payments")
+          for name in "${screenshots[@]}"; do
+            curl --fail --location --retry 3 --retry-delay 1 --silent --show-error "${BASE}/screenshots/${name}.webp" --output "media/tutorials/screenshots/${name}.webp"
+          done
+          for name in video-manifest.json screenshots-manifest.json; do
+            curl --fail --location --retry 3 --retry-delay 1 --silent --show-error "${BASE}/${name}" --output "media/tutorials/${name}"
+          done
+          file media/tutorials/*.mp4 | head -2
+          du -sh media/tutorials
+          git add media/tutorials
+          if git diff --cached --quiet; then
+            echo 'All media already imported'
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Import authentic narrated Practice tutorials and focused screenshots"
+            git push origin "HEAD:refs/heads/${GITHUB_HEAD_REF}"
+          fi
+          
