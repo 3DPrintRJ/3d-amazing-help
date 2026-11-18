@@ -63,3 +63,19 @@ test("Catalog detail visuals use natural size and remain responsive",()=>{
  assert.ok(css.includes(".guide-main .guide-detail-figure{max-width:100%!important}"));
  assert.ok(guide.includes("styles.css?v=20261117-adaptive-details"));
 });
+
+test("video directory opens each narrated guide with local media and captions",()=>{
+ const directory=read("videos.html");
+ const guides=[...directory.matchAll(/<li><a href="([^"#]+)#([^"]+)"/g)];
+ assert.equal(guides.length,10);
+ for(const [,page,anchor] of guides){
+  const html=read(page);
+  const section=html.split('id="'+anchor+'"')[1]?.split("</section>")[0];
+  assert.ok(section?.includes("<video controls playsinline"),page+"#"+anchor);
+  for(const ext of ["mp4","vtt"]){
+   const path=section.match(new RegExp('src="(media/[^"?]+\\.'+ext+')'))?.[1];
+   assert.ok(path && exists(path),page+" "+ext);
+  }
+ }
+ assert.ok(home.includes('href="videos.html"'));
+});

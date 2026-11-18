@@ -1,0 +1,11 @@
+WEBVTT
+
+00:00.000 --> 00:03.167
+In Business Settings, choose Payment Processing.
+
+00:03.167 --> 00:09.333
+This is Sample Practice. External Card Processor simulates recording a card payment without moving money.
+
+00:09.333 --> 00:16.583
+Real processor connections are disabled here. Use your Business workspace to set up Square or Stripe for actual card payments.
+
