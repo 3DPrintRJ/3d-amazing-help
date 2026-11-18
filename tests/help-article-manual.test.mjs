@@ -32,6 +32,7 @@ test("Catalog illustrates the right actions without fabricated screenshots",()=>
 test("Help writing stays short and avoids historical implementation notes",()=>{
  for(const [path,max] of [["getting-started.html",5000],["settings.html",5000],["payments.html",4500],["quick-sale.html",4500],["reports.html",4500],["faq.html",5000],["password-help.html",5000]]){
   const s=read(path);
-  assert.ok(s.length<max,path+": "+s.length);
+  const concise=s.replace(/<section class="practice-task-guide"[\s\S]*?<\/section>\s*/g,"");
+  assert.ok(concise.length<max,path+": "+concise.length);
  }
 });

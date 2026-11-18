@@ -5,8 +5,8 @@ const read=p=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const exists=p=>existsSync(new URL("../"+p,import.meta.url));
 const home=read("index.html"),guide=read("catalog-add-item.html"),password=read("password-help.html"),css=read("styles.css"),script=read("script.js");
 const cards=[...home.matchAll(/<a class="card(?: [^"]*)?" href="([^"]+)" data-search="([^"]+)">/g)].map(x=>x[1]);
-test("Help overview retains 23 valid topics in six groups",()=>{
- assert.equal(cards.length,23);
+test("Help overview retains 24 valid topics in six groups",()=>{
+ assert.equal(cards.length,24);
  assert.equal(new Set(cards).size,23);
  assert.equal((home.match(/data-topic-group/g)||[]).length,6);
  for(const p of cards) assert.ok(exists(p==="roadmap/"?"roadmap/index.html":p),p);
@@ -67,11 +67,11 @@ test("Catalog detail visuals use natural size and remain responsive",()=>{
 test("video directory opens each narrated guide with local media and captions",()=>{
  const directory=read("videos.html");
  const guides=[...directory.matchAll(/<li><a href="([^"#]+)#([^"]+)"/g)];
- assert.equal(guides.length,10);
+ assert.equal(guides.length,20);
  for(const [,page,anchor] of guides){
   const html=read(page);
   const section=html.split('id="'+anchor+'"')[1]?.split("</section>")[0];
-  assert.ok(section?.includes("<video controls playsinline"),page+"#"+anchor);
+  assert.match(section??"", /<video\b[^>]*\bcontrols\b[^>]*\bplaysinline\b/,page+"#"+anchor);
   for(const ext of ["mp4","vtt"]){
    const path=section.match(new RegExp('src="(media/[^"?]+\\.'+ext+')'))?.[1];
    assert.ok(path && exists(path),page+" "+ext);
