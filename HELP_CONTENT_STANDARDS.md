@@ -136,3 +136,14 @@ GitHub Pages can serve short HTML5 tutorials, including MP4 or WebM, using nativ
 ## Catalog capture update, November 17, 2026
 
 The Add a Catalog Item guide and Catalog & Pricing overview now use captures from the live desktop Chromium app at /products in Practice — Sample Data. The 33-second captioned recording follows a new 4-inch Plant Pot – Sage from the chooser to save confirmation at $14.00. The two open lists were captured from the desktop so the browser-native menus are visible. The pricing-method close-up comes from reopening the saved example. The earlier illustration notes above describe previous releases.
+
+## Authentic narrated Practice task videos — November 17, 2026
+
+ChatGPT Work captured original **Practice — Sample Data** screen recordings and 18 supporting PNG screenshots in Dropbox at `/3D Amazing Debug/3D Amazing Help Videos`. The original assets remain in Dropbox unchanged. Ten short videos had no audio and were narrated with English synthesized speech and supplied with local English caption tracks as part of this release.
+
+The ten narrated videos and 18 screenshots are served from public **Supabase Storage**, bucket `help-guides`, prefix `practice-20261117/`. Only the media assets are public; the original Dropbox folder is not publicly shared. The Supabase bucket does not grant anonymous uploads. Source filenames remain descriptive and were not replaced by created artwork.
+
+Workflow IDs:
+`customers-add-video`, `inventory-receive-video`, `inventory-low-stock-video`, `quick-sale-create-video`, `invoice-draft-video`, `quotes-convert-video`, `payments-record-video`, `reports-export-video`, `events-create-video`, `settings-workspace-video`.
+
+All images shown in those sections are actual Practice captures from Work, not simulated interfaces. They are separate from the earlier generated Catalog SVG illustrations and the older narrated area overview videos. Captions are included as local `media/task-*.vtt` tracks; videos use native controls and do not autoplay. Verify asset availability and browser playback independently from GitHub Pages tests.

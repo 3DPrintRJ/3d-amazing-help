@@ -609,3 +609,17 @@ body .topbar nav a.whats-new-nav.active, body .topbar nav .roadmap-nav.active{co
  .guide-main .guide-detail-figure{max-width:100%!important}
  .guide-main .guide-detail-figure>a{display:block;max-width:100%}
 }
+
+/* November 2026 authentic Practice task recordings: readable, responsive,
+   linked images, native captions, no autoplay or external video scripts. */
+.article .help-task-demo{margin:24px 0 30px;padding:0 0 20px;border-bottom:1px solid #dbe2ea}
+.article .help-task-demo h2{margin:15px 0 10px}
+.article .help-task-demo .task-demo-context{font-size:.94rem;color:#536374;line-height:1.5}
+.article .help-task-demo video{display:block;max-width:720px;width:100%;height:auto;aspect-ratio:1362/936;background:#172033;border:1px solid #dce2e8;border-radius:6px}
+.article .help-task-demo video:focus-visible{outline:3px solid #2d6998;outline-offset:2px}
+.article .help-task-demo .task-demo-link{margin:8px 0 18px;font-size:.93rem}
+.article .help-task-demo .task-demo-figure{max-width:720px;margin:13px 0 20px}
+.article .help-task-demo .task-demo-figure a{display:block;max-width:100%}
+.article .help-task-demo .task-demo-figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;border:1px solid #dce2e8;border-radius:5px}
+.article .help-task-demo .task-demo-figure figcaption{font-size:.85rem;line-height:1.45;color:#556578;margin-top:6px}
+@media(max-width:720px){.article .help-task-demo{margin:19px 0 23px;padding-bottom:15px}.article .help-task-demo .task-demo-figure{max-width:100%}}
