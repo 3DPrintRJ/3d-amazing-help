@@ -66,7 +66,8 @@ test("Catalog detail visuals use natural size and remain responsive",()=>{
 
 test("video directory opens each narrated guide with local media and captions",()=>{
  const directory=read("videos.html");
- const guides=[...directory.matchAll(/<li><a href="([^"#]+)#([^"]+)"/g)];
+ const overviews=directory.split("<h2>Area overviews and other tutorials</h2>")[1]||"";
+ const guides=[...overviews.matchAll(/<li><a href="([^"#]+)#([^"]+)"/g)];
  assert.equal(guides.length,10);
  for(const [,page,anchor] of guides){
   const html=read(page);
