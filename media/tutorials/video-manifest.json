@@ -1,0 +1,18 @@
+{
+  "source": "Dropbox /3D Amazing Debug/3D Amazing Help Videos",
+  "captured_using": "3D Amazing Sample Practice desktop, 1362x936",
+  "date": "2026-11-17",
+  "voice": "en-US-JennyNeural",
+  "scripts": {
+    "customers-add-customer": "Open Customers and choose Add Customer. Enter the contact and business names, then save the Practice record.",
+    "inventory-receive-stock": "Open the item's inventory controls. Enter the quantity received, apply the change, and confirm the new on-hand balance.",
+    "inventory-low-stock": "Set the reorder level for an item. Then review the Low Stock report for flagged products.",
+    "quick-sale-create": "Start a Quick Sale and select an example product. Choose the payment method, complete the sale, and review the receipt.",
+    "invoices-draft-and-finalize": "Create an invoice for a Practice customer. Save a draft, then review the confirmation before finalizing it.",
+    "quotes-convert-to-invoice": "Save a new quote. Choose Convert to Invoice, review the warning, and open the resulting invoice.",
+    "payments-record-payment": "On Record Payment, choose an open invoice. Enter the amount, date, and method; save, then inspect the payment history.",
+    "reports-generate-export": "Select the report and date range. Generate its preview, then use the export option to download the report.",
+    "events-create-and-manage": "Create a Practice event, enter the details, and save. Reopen it to review or edit the event information.",
+    "business-settings-workspace-options": "From Business Settings, review workspace choices. Sample Practice is separate from real Business; real processor connections are unavailable in Practice."
+  }
+}

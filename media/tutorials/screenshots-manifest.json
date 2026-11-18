@@ -1,0 +1,506 @@
+{
+  "customers-add-form": {
+    "original": "customers-add-form.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.17,
+      0.04,
+      0.83,
+      0.69
+    ],
+    "derived_size": [
+      899,
+      609
+    ],
+    "file_size": 17802
+  },
+  "customers-saved-profile": {
+    "original": "customers-saved-profile.png",
+    "original_size": [
+      1363,
+      590
+    ],
+    "crop_normalized": [
+      0.12,
+      0.1,
+      0.89,
+      0.9
+    ],
+    "derived_size": [
+      1049,
+      472
+    ],
+    "file_size": 5658
+  },
+  "customers-find": {
+    "original": "customers-find.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.05,
+      0.12,
+      0.93,
+      0.67
+    ],
+    "derived_size": [
+      1100,
+      472
+    ],
+    "file_size": 12202
+  },
+  "inventory-receive": {
+    "original": "inventory-receive.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.12,
+      0.2,
+      0.89,
+      0.84
+    ],
+    "derived_size": [
+      1038,
+      593
+    ],
+    "file_size": 25318
+  },
+  "inventory-history": {
+    "original": "inventory-history.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.1,
+      0.18,
+      0.91,
+      0.82
+    ],
+    "derived_size": [
+      1092,
+      592
+    ],
+    "file_size": 15740
+  },
+  "inventory-threshold": {
+    "original": "inventory-threshold.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.1,
+      0.15,
+      0.92,
+      0.82
+    ],
+    "derived_size": [
+      1100,
+      618
+    ],
+    "file_size": 24248
+  },
+  "inventory-low-stock-detail": {
+    "original": "inventory-low-stock-detail.png",
+    "original_size": [
+      995,
+      477
+    ],
+    "crop_normalized": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "derived_size": [
+      995,
+      477
+    ],
+    "file_size": 17446
+  },
+  "quick-sale-choose-product": {
+    "original": "quick-sale-choose-product.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.08,
+      0.12,
+      0.9,
+      0.8
+    ],
+    "derived_size": [
+      1100,
+      627
+    ],
+    "file_size": 22380
+  },
+  "quick-sale-payment-methods": {
+    "original": "quick-sale-payment-methods.png",
+    "original_size": [
+      1364,
+      1024
+    ],
+    "crop_normalized": [
+      0.07,
+      0.45,
+      0.78,
+      0.98
+    ],
+    "derived_size": [
+      969,
+      543
+    ],
+    "file_size": 13086
+  },
+  "quick-sale-paid-receipt": {
+    "original": "quick-sale-paid-receipt.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.08,
+      0.12,
+      0.9,
+      0.88
+    ],
+    "derived_size": [
+      1100,
+      701
+    ],
+    "file_size": 18876
+  },
+  "invoices-customer-choices": {
+    "original": "invoices-customer-choices.png",
+    "original_size": [
+      1364,
+      1024
+    ],
+    "crop_normalized": [
+      0.12,
+      0.12,
+      0.85,
+      0.75
+    ],
+    "derived_size": [
+      995,
+      645
+    ],
+    "file_size": 7666
+  },
+  "invoices-draft-form": {
+    "original": "invoices-draft-form.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.1,
+      0.14,
+      0.9,
+      0.83
+    ],
+    "derived_size": [
+      1078,
+      639
+    ],
+    "file_size": 12704
+  },
+  "invoices-finalize-confirmation": {
+    "original": "invoices-finalize-confirmation.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.32,
+      0.27,
+      0.72,
+      0.66
+    ],
+    "derived_size": [
+      540,
+      361
+    ],
+    "file_size": 10472
+  },
+  "quotes-customer-choices": {
+    "original": "quotes-customer-choices.png",
+    "original_size": [
+      1364,
+      1024
+    ],
+    "crop_normalized": [
+      0.1,
+      0.16,
+      0.9,
+      0.74
+    ],
+    "derived_size": [
+      1092,
+      594
+    ],
+    "file_size": 11554
+  },
+  "quotes-conversion-warning": {
+    "original": "quotes-conversion-warning.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.07,
+      0.08,
+      0.92,
+      0.54
+    ],
+    "derived_size": [
+      1100,
+      409
+    ],
+    "file_size": 15656
+  },
+  "quotes-converted-invoice": {
+    "original": "quotes-converted-invoice.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.07,
+      0.08,
+      0.92,
+      0.8
+    ],
+    "derived_size": [
+      1100,
+      640
+    ],
+    "file_size": 20994
+  },
+  "payments-cash-entry": {
+    "original": "payments-cash-entry.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.08,
+      0.33,
+      0.91,
+      0.8
+    ],
+    "derived_size": [
+      1100,
+      428
+    ],
+    "file_size": 14378
+  },
+  "payments-methods": {
+    "original": "payments-methods.png",
+    "original_size": [
+      1364,
+      1024
+    ],
+    "crop_normalized": [
+      0.12,
+      0.35,
+      0.93,
+      0.85
+    ],
+    "derived_size": [
+      1100,
+      510
+    ],
+    "file_size": 14338
+  },
+  "payments-history": {
+    "original": "payments-history.png",
+    "original_size": [
+      1348,
+      926
+    ],
+    "crop_normalized": [
+      0.07,
+      0.14,
+      0.93,
+      0.78
+    ],
+    "derived_size": [
+      1100,
+      561
+    ],
+    "file_size": 32584
+  },
+  "reports-date-range": {
+    "original": "reports-date-range.png",
+    "original_size": [
+      1364,
+      1024
+    ],
+    "crop_normalized": [
+      0.12,
+      0.12,
+      0.92,
+      0.8
+    ],
+    "derived_size": [
+      1091,
+      696
+    ],
+    "file_size": 16890
+  },
+  "reports-preview": {
+    "original": "reports-preview.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.08,
+      0.08,
+      0.92,
+      0.85
+    ],
+    "derived_size": [
+      1100,
+      693
+    ],
+    "file_size": 19342
+  },
+  "reports-export-dialog": {
+    "original": "reports-export-dialog.png",
+    "original_size": [
+      504,
+      281
+    ],
+    "crop_normalized": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "derived_size": [
+      504,
+      281
+    ],
+    "file_size": 9128
+  },
+  "events-new-event": {
+    "original": "events-new-event.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.27,
+      0.23,
+      0.73,
+      0.75
+    ],
+    "derived_size": [
+      627,
+      487
+    ],
+    "file_size": 10250
+  },
+  "events-edit": {
+    "original": "events-edit.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.22,
+      0.2,
+      0.79,
+      0.78
+    ],
+    "derived_size": [
+      777,
+      543
+    ],
+    "file_size": 12080
+  },
+  "events-updated": {
+    "original": "events-updated.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.13,
+      0.14,
+      0.89,
+      0.83
+    ],
+    "derived_size": [
+      1036,
+      646
+    ],
+    "file_size": 13096
+  },
+  "business-settings-workspaces": {
+    "original": "business-settings-workspaces.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.29,
+      0.27,
+      0.75,
+      0.72
+    ],
+    "derived_size": [
+      627,
+      421
+    ],
+    "file_size": 9478
+  },
+  "business-settings-workspace-chooser": {
+    "original": "business-settings-workspace-chooser.png",
+    "original_size": [
+      491,
+      393
+    ],
+    "crop_normalized": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "derived_size": [
+      491,
+      393
+    ],
+    "file_size": 9080
+  },
+  "business-settings-practice-payments": {
+    "original": "business-settings-practice-payments.png",
+    "original_size": [
+      1363,
+      936
+    ],
+    "crop_normalized": [
+      0.12,
+      0.1,
+      0.92,
+      0.8
+    ],
+    "derived_size": [
+      1090,
+      655
+    ],
+    "file_size": 16122
+  }
+}
