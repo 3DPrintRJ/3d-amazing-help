@@ -132,3 +132,7 @@ The Catalog article now uses a roughly 480px text column, 155–190px contents c
 ### Instructional video support
 
 GitHub Pages can serve short HTML5 tutorials, including MP4 or WebM, using native video controls and playsinline, with preload set to metadata. Provide descriptive captions/transcripts, a representative poster, and no automatic playback. Record from verified current 3D Amazing UI, preferably a controlled Practice workspace; avoid exposing real Business data, secrets, login tokens or customer details. Keep each clip to one workflow or action, typically 10–45 seconds, and provide equivalent written steps. Do not embed copyrighted Vellum instructional footage. Confirm mobile playback controls and responsive sizing. The user's comparison recording is review evidence, not a suitable public tutorial. **No authenticated tutorial video is published by this change.**
+
+## Catalog capture update, November 17, 2026
+
+The Add a Catalog Item guide and Catalog & Pricing overview now use captures from the live desktop Chromium app at /products in Practice — Sample Data. The 33-second captioned recording follows a new 4-inch Plant Pot – Sage from the chooser to save confirmation at $14.00. The two open lists were captured from the desktop so the browser-native menus are visible. The pricing-method close-up comes from reopening the saved example. The earlier illustration notes above describe previous releases.

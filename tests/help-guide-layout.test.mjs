@@ -27,13 +27,19 @@ test("sign-in help uses a real verified screenshot of public controls",()=>{
  assert.equal(bytes.toString("ascii",8,12),"WEBP");
  assert.ok(read("HELP_CONTENT_STANDARDS.md").includes("d34d75b6b985e2299d1260d225062354467d5f1e"));
 });
-test("Catalog guide retains five actions and four accurately labeled illustrations",()=>{
+test("Catalog guide retains five actions and verified Practice screenshots and a captioned recording",()=>{
  for(const id of ["before-start","step-one","step-two","step-three","step-four","step-five","other-workflows","mobile"])assert.ok(guide.includes('id="'+id+'"'),id);
- for(const phrase of ["What are you adding?","3D Printing","I print / make it","3D Printed Item","Required","Optional","Manual price","Selling price","Cost + markup","Filament / Material","Choose or create category","No category","Save Item","Receive","Use","Adjust","Buy &amp; Resell","Assembly / Gift Set"])assert.ok(guide.includes(phrase),phrase);
- const matches=[...guide.matchAll(/<img src="([^"]+)" alt="([^"]+)" loading="lazy"/g)].filter(x=>x[1].endsWith(".svg"));
- assert.equal(matches.length,8);
+ for(const phrase of ["What are you adding?","3D Printing","I print / make it","3D Printed Item","Required","Selling price","Cost + markup","No category","Save Item","Receive","Use","Adjust","Buy &amp; Resell","Assembly / Gift Set"])assert.ok(guide.includes(phrase),phrase);
+ const matches=[...guide.matchAll(/<img src="([^"]+)" alt="([^"]+)" loading="lazy"/g)].filter(x=>x[1].endsWith(".webp"));
+ assert.equal(matches.length,7);
  for(const x of matches){assert.ok(exists(x[1]));assert.ok(x[2].length>30);assert.ok(guide.includes('href="'+x[1]+'"'));}
- assert.ok(guide.includes("cropped interface illustrations, not real app screenshots"));
+ assert.ok(!guide.includes(".svg"));
+ for(const path of ["media/catalog-practice.mp4","media/catalog-practice.vtt","media/practice-catalog.webp"]){
+   assert.ok(guide.includes(path) && exists(path),path);
+ }
+ assert.match(guide,/<video controls playsinline preload="metadata"/);
+ assert.match(guide,/<track kind="captions"[^>]+default/);
+ assert.ok(read("media/catalog-practice.vtt").startsWith("WEBVTT"));
  assert.ok(!guide.includes('<button class="button"'));
  assert.ok(guide.includes('data-app-target="/products"'));
  assert.ok(css.includes("grid-template-columns:minmax(0,480px) minmax(155px,190px)"));
