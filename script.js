@@ -260,7 +260,8 @@ document.querySelectorAll('a[href]').forEach(link => {
     'quotes.html':'Quotes','settings.html':'Business Settings','search.html':'Global Search',
     'appearance.html':'Appearance & Themes','customers.html':'Customers','dashboard.html':'Dashboard',
     'events.html':'Events','troubleshooting.html':'Troubleshooting',
-    'password-help.html':'Password & Account Recovery','support.html':'Support','faq.html':'FAQ'
+    'password-help.html':'Password & Account Recovery','support.html':'Support','faq.html':'FAQ',
+    'beta-testing.html':'Beta Testing'
   };
   const current = window.location.pathname.split('/').pop();
   const links = related[current];
