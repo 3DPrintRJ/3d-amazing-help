@@ -5,8 +5,8 @@ const read=p=>readFileSync(new URL("../"+p,import.meta.url),"utf8");
 const exists=p=>existsSync(new URL("../"+p,import.meta.url));
 const home=read("index.html"),guide=read("catalog-add-item.html"),password=read("password-help.html"),css=read("styles.css"),script=read("script.js");
 const cards=[...home.matchAll(/<a class="card(?: [^"]*)?" href="([^"]+)" data-search="([^"]+)">/g)].map(x=>x[1]);
-test("Help overview retains 23 valid topics in six groups",()=>{
- assert.equal(cards.length,23);
+test("Help overview retains 24 valid topics in six groups",()=>{
+ assert.equal(cards.length,24);
  assert.equal(new Set(cards).size,23);
  assert.equal((home.match(/data-topic-group/g)||[]).length,6);
  for(const p of cards) assert.ok(exists(p==="roadmap/"?"roadmap/index.html":p),p);
