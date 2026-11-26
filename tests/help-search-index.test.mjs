@@ -41,3 +41,37 @@ test("What’s New retains current release discovery without old development his
  assert.ok(s.includes('id="nov-26-2026-beta-testing"'));
  assert.ok(s.includes("November 26 — Beta testing"));
 });
+
+test("Help Overview starts with task-based choices before the full directory",()=>{
+ const i=read("index.html");
+ const start=i.indexOf('class="help-featured"');
+ const directory=i.indexOf('id="help-cards"');
+ assert.ok(start>=0&&directory>start,"Start choices must precede the directory");
+ const links=[
+  ['href="getting-started.html"','I\'m new here'],
+  ['href="practice-workspace.html"','I want to practice'],
+  ['href="create-sale.html"','I want to make a sale'],
+  ['href="troubleshooting.html"','Something isn\'t working']
+ ];
+ for(const [target,text] of links)assert.ok(i.slice(start,directory).includes(target)&&i.slice(start,directory).includes(text),text);
+ assert.ok(i.slice(start,directory).includes('href="beta-testing.html"'),"Accepted testers need a prominent path");
+ assert.ok(i.slice(start,directory).includes('href="videos.html"'),"Video alternative remains accessible");
+ assert.equal(cards.length,24,"Directory retains every help topic");
+ assert.equal(new Set(cards.map(card=>card.href)).size,24,"No guide is duplicated in the directory");
+});
+test("Overview topic flow follows how a seller uses the app",()=>{
+ const i=read("index.html");
+ const groups=['id="getting-started"','id="catalog-inventory"','id="sales-payments"','id="manage-business"','id="settings-setup"','id="help-support"'];
+ const positions=groups.map(id=>i.indexOf(id));
+ assert.ok(positions.every(v=>v>=0)&&positions.every((v,n)=>!n||v>positions[n-1]),"Groups appear in usage order");
+ const catalog=i.slice(positions[1],positions[2]);
+ assert.ok(catalog.includes('href="customers.html"')&&catalog.includes('href="catalog-add-item.html"'),"Customers and products are together before sales");
+ const other=i.slice(positions[3],positions[4]);
+ assert.ok(!other.includes('href="customers.html"')&&other.includes('href="events.html"')&&other.includes('href="reports.html"'),"Events and reports do not hide customer setup");
+ assert.ok(i.includes('id="no-results"')&&i.includes('<a href="support.html">contact Support</a>'),"Search has a usable recovery path");
+ const script=read("script.js");
+ assert.ok(script.includes('noResults.hidden = !q || shown !== 0'),"Empty-state guidance appears only without matches");
+ const css=read("styles.css");
+ assert.ok(css.includes('.help-home .help-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'),"Desktop layout groups links by task");
+ assert.ok(css.includes('@media(max-width:780px)'),"Guide remains readable on a phone");
+});
