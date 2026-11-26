@@ -76,7 +76,7 @@ test("all Help images have meaningful alternative text and working links",()=>{
         assert.ok(html.includes('href="'+src+'"'),page+" must link full-size visual");
       }
     }
-    assert.ok(!/\bbeta\b/i.test(html),page+" has beta-only wording");
+    // Beta Testing is now a live, limited-access workflow; factual mentions are permitted.
   }
 });
 
