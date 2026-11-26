@@ -20,23 +20,22 @@ function applyHelpSearch() {
     if (match) shown++;
   });
 
-  // Keep the six-topic directory compact: a group disappears while none
-  // of its article links match the current search. The original 23 card
-  // keywords and their individual link behavior remain intact.
+  // Hide topic groups without matching articles; all 24 original
+  // destination URLs remain unchanged when search is active.
   helpTopicGroups.forEach(group => {
     const hasVisibleArticles = [...group.querySelectorAll('.card')].some(card => !card.hidden);
     group.hidden = !hasVisibleArticles;
     group.setAttribute('aria-hidden', hasVisibleArticles ? 'false' : 'true');
   });
 
-  // The live search-status line is the single empty-state message. Showing a
-  // second no-results panel duplicated the message on desktop and mobile.
-  if (noResults) noResults.hidden = true;
+  // Distinguish the live count from next steps on a zero-result search.
+  // The no-results helper contains real FAQ and Support links.
+  if (noResults) noResults.hidden = !q || shown !== 0;
   if (helpResultsHeading) helpResultsHeading.textContent = q ? 'Search results' : 'Explore by topic';
   document.body.classList.toggle('help-search-active', Boolean(q));
   if (searchStatus) {
     searchStatus.textContent = q
-      ? (shown === 0 ? `No topics found for “${search.value.trim()}”. Try another search or Contact Support.` : `Showing ${shown} help topic${shown === 1 ? '' : 's'} matching “${search.value.trim()}”.`)
+      ? (shown === 0 ? `No topics found for “${search.value.trim()}”.` : `Showing ${shown} help topic${shown === 1 ? '' : 's'} matching “${search.value.trim()}”.`)
       : `Showing all ${cards.length} help topics.`;
   }
 }

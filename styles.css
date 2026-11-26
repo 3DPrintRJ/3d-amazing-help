@@ -623,3 +623,39 @@ body .topbar nav a.whats-new-nav.active, body .topbar nav .roadmap-nav.active{co
 .article .help-task-demo .task-demo-figure img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;border:1px solid #dce2e8;border-radius:5px}
 .article .help-task-demo .task-demo-figure figcaption{font-size:.85rem;line-height:1.45;color:#556578;margin-top:6px}
 @media(max-width:720px){.article .help-task-demo{margin:19px 0 23px;padding-bottom:15px}.article .help-task-demo .task-demo-figure{max-width:100%}}
+
+
+/* 2026-11-26: Homepage task-first navigation. Keep the text-first manual style. */
+.help-home .help-home-intro{max-width:700px;margin:10px 0 0;font-size:1rem;line-height:1.5;color:#535d68}
+.help-home .hero:has(#help-search) .search-wrap{max-width:590px;margin-top:16px}
+.help-home .hero:has(#help-search) .search-wrap input{min-height:44px}
+.help-home .help-featured{padding:14px 0 20px;margin:12px 0 21px;border-bottom:1px solid #e1e6ec}
+.help-home .help-featured-heading{margin:0 0 10px}
+.help-home .help-featured-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px}
+.help-home .help-featured-links>a,.help-home .help-featured-links>a:first-child{
+ display:block;padding:5px 0;color:#244466;text-decoration:none;line-height:1.35;min-width:0
+}
+.help-home .help-featured-links>a strong{display:block;font-size:1rem;font-weight:650;color:#244466;text-decoration:underline;text-underline-offset:3px}
+.help-home .help-featured-links>a span:last-child{display:block;font-size:.86rem;color:#606b77;line-height:1.4;margin:3px 0 0;text-decoration:none}
+.help-home .help-featured-links>a:hover strong,.help-home .help-featured-links>a:focus-visible strong{color:#102a49;text-decoration-thickness:2px}
+.help-home .help-path-note{font-size:.93rem;line-height:1.55;color:#414b56;margin:15px 0 0}
+.help-home .help-path-note a{color:#365478;text-decoration:underline;text-underline-offset:3px}
+.help-home .help-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:42px;row-gap:20px;align-items:start}
+.help-home .help-topic-group{margin:0}
+.help-home .help-topic-heading{margin-bottom:6px}
+.help-home .help-topic-heading h3{font-size:1.18rem;line-height:1.3}
+.help-home .help-topic-links{display:flex;flex-direction:column;gap:0;margin:0}
+.help-home .help-results-section .help-topic-link,.help-home .help-results-section .card{padding:6px 0;min-height:0}
+.help-home .help-empty-action{margin:12px 0 8px;padding:0;font-size:.96rem;line-height:1.5;color:#414b56}
+.help-home .help-empty-action a{color:#365478;text-decoration:underline;text-underline-offset:3px}
+.help-home .help-empty-action[hidden]{display:none!important}
+@media(max-width:780px){
+ .help-home .help-topic-grid{grid-template-columns:1fr;gap:21px}
+ .help-home .help-featured-links{grid-template-columns:1fr;gap:4px}
+ .help-home .help-featured-links>a,.help-home .help-featured-links>a:first-child{padding:7px 0}
+ .help-home .help-featured{padding-bottom:14px}
+ .help-home .help-home-intro{font-size:.95rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .help-home .help-featured-links>a{transition:none}
+}
