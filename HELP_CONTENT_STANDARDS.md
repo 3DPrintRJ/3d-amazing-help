@@ -147,3 +147,19 @@ Workflow IDs:
 `customers-add-video`, `inventory-receive-video`, `inventory-low-stock-video`, `quick-sale-create-video`, `invoice-draft-video`, `quotes-convert-video`, `payments-record-video`, `reports-export-video`, `events-create-video`, `settings-workspace-video`.
 
 All images shown in those sections are actual Practice captures from Work, not simulated interfaces. They are separate from the earlier generated Catalog SVG illustrations and the older narrated area overview videos. Captions are included as local `media/task-*.vtt` tracks; videos use native controls and do not autoplay. Verify asset availability and browser playback independently from GitHub Pages tests.
+
+## November 26, 2026 — Help text and release audit
+
+Source reviewed: live app source from `3DPrintRJ/3d-amazing-sales-manager-web` at production commit `50f3d9c6cc8213540e743e34cc0b1ec8062ccece`, plus merged November 19–26 app pull requests. The related app navigation and help cleanup is a separate proposed PR.
+
+Changes in this Help release:
+- Added `beta-testing.html` for the eight-task checklist, Practice-based testing, direct report sending, screenshot and short-video uploads, 3 MB combined limit, large-video links, final evaluation, and manual six-month reward review.
+- Updated Help Overview search, Getting Started, Dashboard, Practice, Business Settings, Support, FAQ, Troubleshooting, Admin guidance, relevant related-article links, and November 26/21 What's New entries.
+- Explained that the formerly visible desktop `Practice Sandbox` status was passive and redundant with the yellow Practice banner; it has been removed in the accompanying app change.
+- Preserved older task videos with an explicit recording-age warning instead of pretending they show the latest top and bottom navigation.
+- Updated CI tests to permit accurate references to the real Beta Testing feature; they previously banned the word “beta” across every public article.
+- Kept the distinction between app report email acceptance, actual inbox delivery, and Zoho Desk ticket creation. **Only the first stage is recorded by the app; successful Zoho routing remains unverified until a real manual ticket test.**
+
+**Not visually recaptured in this release:** authenticated screenshots, existing narrated November 17 workflow videos, and mobile Safari playback. Do not call older imagery current. Before claiming full screenshot parity, capture fresh controlled Practice images on desktop and iPhone and verify no private Business/customer data.
+
+**Verification:** GitHub CI and Help search/link tests are mandatory. A successful build or GitHub Pages update is not manual browser acceptance. Check actual app Help-button routing from `/beta-testing`, desktop/mobilenav labels, and Help return context after both repositories deploy.

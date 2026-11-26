@@ -245,9 +245,10 @@ document.querySelectorAll('a[href]').forEach(link => {
     'reports.html': ['invoices.html', 'payments.html', 'events.html'],
     'appearance.html': ['settings.html', 'practice-workspace.html', 'getting-started.html'],
     'password-help.html': ['troubleshooting.html', 'getting-started.html', 'support.html'],
-    'faq.html': ['troubleshooting.html', 'support.html', 'getting-started.html'],
+    'faq.html': ['troubleshooting.html', 'support.html', 'beta-testing.html'],
     'troubleshooting.html': ['password-help.html', 'support.html', 'faq.html'],
-    'support.html': ['faq.html', 'troubleshooting.html', 'getting-started.html'],
+    'support.html': ['beta-testing.html', 'faq.html', 'troubleshooting.html'],
+    'beta-testing.html': ['practice-workspace.html', 'support.html', 'faq.html'],
     'create-sale.html': ['quick-sale.html', 'create-invoice.html', 'quotes.html']
   };
   const titles = {
@@ -259,7 +260,8 @@ document.querySelectorAll('a[href]').forEach(link => {
     'quotes.html':'Quotes','settings.html':'Business Settings','search.html':'Global Search',
     'appearance.html':'Appearance & Themes','customers.html':'Customers','dashboard.html':'Dashboard',
     'events.html':'Events','troubleshooting.html':'Troubleshooting',
-    'password-help.html':'Password & Account Recovery','support.html':'Support','faq.html':'FAQ'
+    'password-help.html':'Password & Account Recovery','support.html':'Support','faq.html':'FAQ',
+    'beta-testing.html':'Beta Testing'
   };
   const current = window.location.pathname.split('/').pop();
   const links = related[current];

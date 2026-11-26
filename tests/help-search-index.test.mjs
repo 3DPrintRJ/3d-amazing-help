@@ -8,13 +8,17 @@ const cards=[...home.matchAll(/<a class="card(?: [^"]*)?" href="([^"]+)" data-se
 const matches=q=>cards.filter(c=>q.toLowerCase().split(/\s+/).every(w=>c.search.includes(w))).map(c=>c.href);
 test("Help search keeps current topic aliases and valid links",()=>{
  for(const c of cards) assert.ok(existsSync(new URL("../"+(c.href==="roadmap/"?"roadmap/index.html":c.href),import.meta.url)),c.href);
- for(const [term,page] of [["theme","appearance.html"],["colors","appearance.html"],["buy resell","products.html"],["reset practice","practice-workspace.html"],["sales tax","settings.html"],["free limits","faq.html"],["settings features","search.html"],["sign in","password-help.html"]])assert.ok(matches(term).includes(page),term);
+ for(const [term,page] of [["theme","appearance.html"],["colors","appearance.html"],["buy resell","products.html"],["reset practice","practice-workspace.html"],["sales tax","settings.html"],["free limits","faq.html"],["settings features","search.html"],["sign in","password-help.html"],["beta testing","beta-testing.html"],["screenshot","beta-testing.html"]])assert.ok(matches(term).includes(page),term);
 });
-test("user-facing Help has no outdated beta-only instructions",()=>{
- const root=readdirSync(new URL("../",import.meta.url)).filter(f=>f.endsWith(".html"));
- for(const p of [...root,"roadmap/index.html"]){
-  assert.ok(!/\bbeta\b/i.test(read(p)), "Outdated beta reference in "+p);
- }
+test("Beta testing help is current and normal Help stays available",()=>{
+ const guide=read("beta-testing.html"),faq=read("faq.html"),support=read("support.html");
+ assert.ok(guide.includes("For accepted beta testers"));
+ assert.ok(guide.includes("eight short tasks")&&guide.includes("dark header"));
+ assert.ok(guide.includes("3 MB")&&guide.includes("Send Report to Support"));
+ assert.ok(guide.includes("not a Zoho Desk ticket number")&&guide.includes("manual completion review"));
+ assert.ok(faq.includes("Accepted beta testers are exempt"));
+ assert.ok(support.includes('href="beta-testing.html"'));
+ assert.ok(!read("getting-started.html").includes("Beta access is required"));
 });
 test("Appearance, Practice, Plan and Search facts remain accurate",()=>{
  const appearance=read("appearance.html"),practice=read("practice-workspace.html"),faq=read("faq.html"),search=read("search.html");
@@ -33,5 +37,7 @@ test("What’s New retains current release discovery without old development his
  assert.ok(s.includes('id="nov-16-2026-search-themes-help"'));
  assert.ok(s.includes("eight"));
  assert.ok(s.includes("iPhone Safari"));
- assert.ok(s.length<7000);
+ assert.ok(s.length<10000);
+ assert.ok(s.includes('id="nov-26-2026-beta-testing"'));
+ assert.ok(s.includes("November 26 — Beta testing"));
 });
