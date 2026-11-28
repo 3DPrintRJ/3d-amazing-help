@@ -82,3 +82,5 @@ test("Overview topic flow follows how a seller uses the app",()=>{
  assert.ok(css.includes('.help-home .help-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'),"Desktop layout groups links by task");
  assert.ok(css.includes('@media(max-width:780px)'),"Guide remains readable on a phone");
 });
+
+test("Revised Starter and Maker sales allowances are documented as pending release",()=>{const faq=read("faq.html"); assert.ok(faq.includes("20 completed sales per calendar month and 1 event per month")); assert.ok(faq.includes("35 completed sales per calendar month and 3 events per month")); assert.ok(faq.includes("pending the application release"));});
