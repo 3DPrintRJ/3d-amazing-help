@@ -27,7 +27,14 @@ test("Appearance, Practice, Plan and Search facts remain accurate",()=>{
  assert.ok(practice.includes("Business Profile &amp; Practice"));
  assert.ok(practice.includes('data-app-target="/settings?section=business&amp;focus=reset-practice"'));
  assert.ok(practice.includes("real Business or Blank Practice"));
- assert.ok(faq.includes("2 Customers, 10 Catalog products and 10 completed sales total"));
+ assert.ok(faq.includes("10 catalog items, 5 saved customers, 10 completed sales per calendar month and 1 craft-show event per calendar month"));
+ assert.ok(faq.includes("Existing Free accounts retain their existing access"));
+ assert.ok(faq.includes("21-day Starter trial without a credit card"));
+ assert.ok(faq.includes("$2.95/month only after you explicitly subscribe"));
+ assert.ok(faq.includes("no annual Starter plan or automatic trial charge"));
+ assert.ok(faq.includes("Registration is temporarily unavailable"));
+ const onboarding=read("getting-started.html");
+ for(const phrase of ["first and last name","Terms of Service and Privacy Policy","Submit Registration","a red notice explains why registration is unavailable and the button is disabled","verify your email address"])assert.ok(onboarding.includes(phrase),phrase);
  assert.ok(faq.includes("Full Restore replaces that Business"));
  assert.ok(search.includes("Settings &amp; features")&&search.includes("Reset Sample Practice"));
 });
@@ -75,3 +82,5 @@ test("Overview topic flow follows how a seller uses the app",()=>{
  assert.ok(css.includes('.help-home .help-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))'),"Desktop layout groups links by task");
  assert.ok(css.includes('@media(max-width:780px)'),"Guide remains readable on a phone");
 });
+
+test("Revised Starter and Maker sales allowances are documented as pending release",()=>{const faq=read("faq.html"); assert.ok(faq.includes("20 completed sales per calendar month and 1 event per month")); assert.ok(faq.includes("35 completed sales per calendar month and 3 events per month")); assert.ok(faq.includes("pending the application release"));});
