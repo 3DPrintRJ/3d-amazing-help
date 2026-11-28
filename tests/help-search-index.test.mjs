@@ -27,7 +27,14 @@ test("Appearance, Practice, Plan and Search facts remain accurate",()=>{
  assert.ok(practice.includes("Business Profile &amp; Practice"));
  assert.ok(practice.includes('data-app-target="/settings?section=business&amp;focus=reset-practice"'));
  assert.ok(practice.includes("real Business or Blank Practice"));
- assert.ok(faq.includes("2 Customers, 10 Catalog products and 10 completed sales total"));
+ assert.ok(faq.includes("10 catalog items, 5 saved customers, 10 completed sales per calendar month and 1 craft-show event per calendar month"));
+ assert.ok(faq.includes("Existing Free accounts retain their existing access"));
+ assert.ok(faq.includes("21-day Starter trial without a credit card"));
+ assert.ok(faq.includes("$2.95/month only after you explicitly subscribe"));
+ assert.ok(faq.includes("no annual Starter plan or automatic trial charge"));
+ assert.ok(faq.includes("Registration is temporarily unavailable"));
+ const onboarding=read("getting-started.html");
+ for(const phrase of ["first and last name","Terms of Service and Privacy Policy","Create My Account","button is not shown while signup is closed","verify your email address"])assert.ok(onboarding.includes(phrase),phrase);
  assert.ok(faq.includes("Full Restore replaces that Business"));
  assert.ok(search.includes("Settings &amp; features")&&search.includes("Reset Sample Practice"));
 });
