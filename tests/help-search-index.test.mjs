@@ -34,7 +34,7 @@ test("Appearance, Practice, Plan and Search facts remain accurate",()=>{
  assert.ok(faq.includes("no annual Starter plan or automatic trial charge"));
  assert.ok(faq.includes("Registration is temporarily unavailable"));
  const onboarding=read("getting-started.html");
- for(const phrase of ["first and last name","Terms of Service and Privacy Policy","Create My Account","button is not shown while signup is closed","verify your email address"])assert.ok(onboarding.includes(phrase),phrase);
+ for(const phrase of ["first and last name","Terms of Service and Privacy Policy","Submit Registration","a red notice explains why registration is unavailable and the button is disabled","verify your email address"])assert.ok(onboarding.includes(phrase),phrase);
  assert.ok(faq.includes("Full Restore replaces that Business"));
  assert.ok(search.includes("Settings &amp; features")&&search.includes("Reset Sample Practice"));
 });
